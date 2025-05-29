@@ -1,19 +1,34 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { NAVIGATION_ITEMS, COMPANY_INFO } from '@/lib/constants';
+import { NAVIGATION_ITEMS, getCompanyInfo } from '@/lib/constants';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [companyInfo, setCompanyInfo] = useState(getCompanyInfo());
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    // Update company info when localStorage changes
+    const handleStorageChange = () => {
+      setCompanyInfo(getCompanyInfo());
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Also check for updates periodically
+    const interval = setInterval(handleStorageChange, 1000);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
   }, []);
 
   return (
@@ -27,7 +42,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-gradient-to-r from-tech-primary to-blue-400 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">DMC</span>
             </div>
-            <span className="text-xl font-bold text-white">{COMPANY_INFO.name}</span>
+            <span className="text-xl font-bold text-white">{companyInfo.name}</span>
           </div>
 
           {/* Desktop Navigation */}

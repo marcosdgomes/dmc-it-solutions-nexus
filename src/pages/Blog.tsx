@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -8,25 +9,40 @@ import { ArrowDown, Search, Calendar, User, ExternalLink } from 'lucide-react';
 import { useWordPress } from '@/hooks/useWordPress';
 
 const Blog = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const { posts, isLoading, config } = useWordPress();
-
-  const categories = ["Todos", "DevOps", "Cloud", "AI", "Monitoring", "Infrastructure", "Security"];
+  const { posts, categories, isLoading, config } = useWordPress();
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   // Transform WordPress posts to match the existing structure
-  const transformedPosts = posts.map(post => ({
-    title: post.title.rendered.replace(/<[^>]*>/g, ''), // Remove HTML tags
-    excerpt: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 200) + '...', // Remove HTML and limit length
-    author: "DMC Team",
-    date: post.date,
-    category: "WordPress",
-    image: "photo-1461749280684-dccba630e2f6", // Default image
-    readTime: "5 min",
-    tags: ["WordPress", "Blog"],
-    slug: post.slug,
-    id: post.id
-  }));
+  const transformedPosts = posts.map(post => {
+    // Extract featured image
+    const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 
+                         "photo-1461749280684-dccba630e2f6";
+    
+    // Extract category
+    const category = post._embedded?.['wp:term']?.[0]?.[0]?.name || "WordPress";
+    
+    // Extract tags
+    const tags = post._embedded?.['wp:term']?.[1]?.map(tag => tag.name) || ["WordPress", "Blog"];
+
+    return {
+      title: post.title.rendered.replace(/<[^>]*>/g, ''),
+      excerpt: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+      author: "DMC Team",
+      date: post.date,
+      category: category,
+      image: featuredImage,
+      readTime: "5 min",
+      tags: tags,
+      slug: post.slug,
+      id: post.id,
+      link: post.link
+    }
+  });
+
+  // Create dynamic categories list
+  const dynamicCategories = ["Todos", ...categories.map(cat => cat.name)];
 
   const filteredPosts = transformedPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -34,6 +50,10 @@ const Blog = () => {
     const matchesCategory = selectedCategory === "Todos" || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  const handleReadMore = (slug: string) => {
+    navigate(`/blog/${slug}`);
+  };
 
   return (
     <div className="min-h-screen bg-tech-dark">
@@ -70,7 +90,7 @@ const Blog = () => {
       <section className="py-8 border-b border-tech-lightGray/20">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
+            {dynamicCategories.map((category) => (
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "ghost"}
@@ -121,9 +141,12 @@ const Blog = () => {
                   {/* Image */}
                   <div className="relative overflow-hidden rounded-lg mb-6">
                     <img 
-                      src={`https://images.unsplash.com/${post.image}?w=400&h=250&fit=crop`}
+                      src={post.image.startsWith('http') ? post.image : `https://images.unsplash.com/${post.image}?w=400&h=250&fit=crop`}
                       alt={post.title}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop`;
+                      }}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-tech-primary text-white px-2 py-1 rounded text-xs font-medium">
@@ -134,10 +157,11 @@ const Blog = () => {
 
                   {/* Content */}
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-white hover:text-tech-primary transition-colors duration-300">
-                      <a href="#" className="block">
-                        {post.title}
-                      </a>
+                    <h3 
+                      className="text-xl font-bold text-white hover:text-tech-primary transition-colors duration-300 cursor-pointer"
+                      onClick={() => handleReadMore(post.slug)}
+                    >
+                      {post.title}
                     </h3>
                     
                     <p className="text-gray-300 text-sm leading-relaxed">
@@ -161,7 +185,7 @@ const Blog = () => {
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
-                      {post.tags.map((tag, tagIndex) => (
+                      {post.tags.slice(0, 3).map((tag, tagIndex) => (
                         <span 
                           key={tagIndex}
                           className="bg-tech-gray/50 text-gray-300 px-2 py-1 rounded text-xs"
@@ -176,6 +200,7 @@ const Blog = () => {
                       variant="ghost" 
                       size="sm"
                       className="text-tech-primary hover:text-white hover:bg-tech-primary w-full mt-4"
+                      onClick={() => handleReadMore(post.slug)}
                     >
                       Ler Artigo Completo
                       <ExternalLink className="w-4 h-4 ml-2" />

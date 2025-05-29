@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { useWordPress } from '@/hooks/useWordPress'
@@ -6,6 +7,7 @@ import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
@@ -19,7 +21,8 @@ import {
   Save,
   TestTube,
   Calendar,
-  Eye
+  Eye,
+  Settings
 } from 'lucide-react'
 
 const Management = () => {
@@ -103,6 +106,10 @@ const Management = () => {
               <TabsTrigger value="wordpress" className="data-[state=active]:bg-tech-primary">
                 <Globe className="w-4 h-4 mr-2 text-tech-primary" />
                 WordPress
+              </TabsTrigger>
+              <TabsTrigger value="site" className="data-[state=active]:bg-tech-primary">
+                <Settings className="w-4 h-4 mr-2 text-tech-primary" />
+                Site Config
               </TabsTrigger>
             </TabsList>
 
@@ -250,6 +257,59 @@ const Management = () => {
                   </CardContent>
                 </Card>
               </div>
+            </TabsContent>
+
+            <TabsContent value="site">
+              <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <Settings className="w-5 h-5 mr-2 text-tech-primary" />
+                    Configurações do Site
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <Label htmlFor="site-title" className="text-gray-300">
+                      Título do Site
+                    </Label>
+                    <Input
+                      id="site-title"
+                      value={wpConfig.siteTitle || ''}
+                      onChange={(e) => setWpConfig({...wpConfig, siteTitle: e.target.value})}
+                      className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                      placeholder="DMC IT Solutions"
+                    />
+                    <p className="text-gray-400 text-sm mt-1">
+                      Este título aparecerá no header e em outras partes do site
+                    </p>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="site-description" className="text-gray-300">
+                      Descrição do Site (SEO)
+                    </Label>
+                    <Textarea
+                      id="site-description"
+                      value={wpConfig.siteDescription || ''}
+                      onChange={(e) => setWpConfig({...wpConfig, siteDescription: e.target.value})}
+                      className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                      placeholder="Especialistas em DevOps, automações, infraestrutura em nuvem"
+                      rows={3}
+                    />
+                    <p className="text-gray-400 text-sm mt-1">
+                      Esta descrição aparecerá nos resultados do Google e redes sociais
+                    </p>
+                  </div>
+
+                  <Button 
+                    onClick={handleSaveConfig}
+                    className="bg-tech-primary hover:bg-tech-primary/90"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    Salvar Configurações
+                  </Button>
+                </CardContent>
+              </Card>
             </TabsContent>
           </Tabs>
         </div>

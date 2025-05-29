@@ -1,3 +1,17 @@
+export const getCompanyInfo = () => {
+  const saved = localStorage.getItem('wp-config')
+  const config = saved ? JSON.parse(saved) : {}
+  
+  return {
+    name: config.siteTitle || "DMC IT Solutions",
+    domain: "dmcitsolutions.com",
+    description: config.siteDescription || "Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada",
+    email: "contato@dmcitsolutions.com",
+    phone: "+55 (11) 99999-9999",
+    whatsapp: "5511999999999",
+    address: "São Paulo, SP - Brasil"
+  }
+}
 
 export const COMPANY_INFO = {
   name: "DMC IT Solutions",
