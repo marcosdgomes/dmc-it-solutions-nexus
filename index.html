@@ -4,19 +4,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DMC IT Solutions - DevOps, Cloud e Automação</title>
-    <meta name="description" content="Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada. Transforme sua infraestrutura com a DMC IT Solutions." />
+    <title id="page-title">DMC IT Solutions - DevOps, Cloud e Automação</title>
+    <meta id="page-description" name="description" content="Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada. Transforme sua infraestrutura com a DMC IT Solutions." />
     <meta name="author" content="DMC IT Solutions" />
-    <meta name="keywords" content="DevOps, Cloud, AWS, GCP, Automação, IA, Kubernetes, Docker, CI/CD" />
+    <meta id="page-keywords" name="keywords" content="DevOps, Cloud, AWS, GCP, Automação, IA, Kubernetes, Docker, CI/CD" />
 
-    <meta property="og:title" content="DMC IT Solutions - DevOps, Cloud e Automação" />
-    <meta property="og:description" content="Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada" />
+    <meta id="og-title" property="og:title" content="DMC IT Solutions - DevOps, Cloud e Automação" />
+    <meta id="og-description" property="og:description" content="Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta id="og-image" property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@dmcitsolutions" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta id="twitter-image" name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Google Analytics - será inserido dinamicamente -->
+    <script id="google-analytics"></script>
+    
+    <!-- Matomo - será inserido dinamicamente -->
+    <script id="matomo-analytics"></script>
+    
+    <!-- Plausible - será inserido dinamicamente -->
+    <script id="plausible-analytics"></script>
   </head>
 
   <body>
@@ -24,5 +33,88 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Dynamic meta tags updater -->
+    <script>
+      // Update meta tags based on localStorage config
+      function updateMetaTags() {
+        const siteConfig = JSON.parse(localStorage.getItem('site-config') || '{}');
+        const wpConfig = JSON.parse(localStorage.getItem('wp-config') || '{}');
+        
+        // Update title
+        const title = siteConfig.siteTitle || wpConfig.siteTitle || 'DMC IT Solutions';
+        document.getElementById('page-title').textContent = title + ' - DevOps, Cloud e Automação';
+        
+        // Update description
+        const description = siteConfig.siteDescription || wpConfig.siteDescription || 'Especialistas em DevOps, automações, infraestrutura em nuvem';
+        document.getElementById('page-description').setAttribute('content', description);
+        
+        // Update keywords
+        if (siteConfig.metaKeywords) {
+          document.getElementById('page-keywords').setAttribute('content', siteConfig.metaKeywords);
+        }
+        
+        // Update Open Graph
+        document.getElementById('og-title').setAttribute('content', siteConfig.ogTitle || title);
+        document.getElementById('og-description').setAttribute('content', siteConfig.ogDescription || description);
+        if (siteConfig.ogImage) {
+          document.getElementById('og-image').setAttribute('content', siteConfig.ogImage);
+          document.getElementById('twitter-image').setAttribute('content', siteConfig.ogImage);
+        }
+        
+        // Add Google Analytics
+        if (siteConfig.googleAnalyticsId) {
+          const gaScript = document.getElementById('google-analytics');
+          gaScript.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${siteConfig.googleAnalyticsId}');
+          `;
+          
+          if (!document.querySelector('script[src*="googletagmanager"]')) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = \`https://www.googletagmanager.com/gtag/js?id=\${siteConfig.googleAnalyticsId}\`;
+            document.head.appendChild(script);
+          }
+        }
+        
+        // Add Matomo
+        if (siteConfig.matomoUrl && siteConfig.matomoSiteId) {
+          const matomoScript = document.getElementById('matomo-analytics');
+          matomoScript.innerHTML = \`
+            var _paq = window._paq = window._paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+              var u="\${siteConfig.matomoUrl}";
+              _paq.push(['setTrackerUrl', u+'matomo.php']);
+              _paq.push(['setSiteId', '\${siteConfig.matomoSiteId}']);
+              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+            })();
+          \`;
+        }
+        
+        // Add Plausible
+        if (siteConfig.plausibleDomain) {
+          if (!document.querySelector('script[data-domain]')) {
+            const script = document.createElement('script');
+            script.defer = true;
+            script.setAttribute('data-domain', siteConfig.plausibleDomain);
+            script.src = 'https://plausible.io/js/script.js';
+            document.head.appendChild(script);
+          }
+        }
+      }
+      
+      // Update on load and when storage changes
+      updateMetaTags();
+      window.addEventListener('storage', updateMetaTags);
+      
+      // Also update when page loads (for same-tab changes)
+      document.addEventListener('DOMContentLoaded', updateMetaTags);
+    </script>
   </body>
 </html>

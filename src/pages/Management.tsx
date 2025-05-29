@@ -12,6 +12,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { useToast } from '@/hooks/use-toast'
+import { Switch } from '@/components/ui/switch'
 import { 
   LogOut, 
   Globe, 
@@ -22,8 +23,49 @@ import {
   TestTube,
   Calendar,
   Eye,
-  Settings
+  Settings,
+  Search,
+  BarChart3,
+  Share2,
+  Palette,
+  Mail
 } from 'lucide-react'
+
+interface SiteConfig {
+  siteTitle?: string
+  siteDescription?: string
+  // SEO
+  metaKeywords?: string
+  robotsTxt?: string
+  generateSitemap?: boolean
+  // Analytics
+  googleAnalyticsId?: string
+  matomoUrl?: string
+  matomoSiteId?: string
+  plausibleDomain?: string
+  // Social Media
+  facebookUrl?: string
+  twitterUrl?: string
+  instagramUrl?: string
+  linkedinUrl?: string
+  youtubeUrl?: string
+  // Open Graph
+  ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  // Design
+  primaryColor?: string
+  secondaryColor?: string
+  fontFamily?: string
+  theme?: string
+  // Contact Form
+  contactFormEnabled?: boolean
+  contactFormEmail?: string
+  smtpHost?: string
+  smtpPort?: string
+  smtpUser?: string
+  smtpPassword?: string
+}
 
 const Management = () => {
   const { user, loading, signOut } = useAuth()
@@ -32,6 +74,20 @@ const Management = () => {
 
   const [wpConfig, setWpConfig] = useState(config)
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'testing' | 'success' | 'error'>('idle')
+
+  // Site config from localStorage
+  const [siteConfig, setSiteConfig] = useState<SiteConfig>(() => {
+    const saved = localStorage.getItem('site-config')
+    return saved ? JSON.parse(saved) : {
+      primaryColor: '#3B82F6',
+      secondaryColor: '#1E40AF',
+      theme: 'dark',
+      fontFamily: 'Inter',
+      generateSitemap: true,
+      contactFormEnabled: true,
+      robotsTxt: `User-agent: *\nAllow: /\n\nSitemap: ${window.location.origin}/sitemap.xml`
+    }
+  })
 
   if (loading) {
     return (
@@ -46,10 +102,12 @@ const Management = () => {
   }
 
   const handleSaveConfig = () => {
-    saveConfig(wpConfig)
+    const updatedConfig = { ...wpConfig, ...siteConfig }
+    saveConfig(updatedConfig)
+    localStorage.setItem('site-config', JSON.stringify(siteConfig))
     toast({
       title: "Configurações salvas!",
-      description: "Configuração do WordPress atualizada com sucesso.",
+      description: "Todas as configurações foram atualizadas com sucesso.",
     })
   }
 
@@ -107,12 +165,33 @@ const Management = () => {
                 <Globe className="w-4 h-4 mr-2 text-tech-primary" />
                 WordPress
               </TabsTrigger>
-              <TabsTrigger value="site" className="data-[state=active]:bg-tech-primary">
+              <TabsTrigger value="general" className="data-[state=active]:bg-tech-primary">
                 <Settings className="w-4 h-4 mr-2 text-tech-primary" />
-                Site Config
+                Geral
+              </TabsTrigger>
+              <TabsTrigger value="seo" className="data-[state=active]:bg-tech-primary">
+                <Search className="w-4 h-4 mr-2 text-tech-primary" />
+                SEO
+              </TabsTrigger>
+              <TabsTrigger value="analytics" className="data-[state=active]:bg-tech-primary">
+                <BarChart3 className="w-4 h-4 mr-2 text-tech-primary" />
+                Analytics
+              </TabsTrigger>
+              <TabsTrigger value="social" className="data-[state=active]:bg-tech-primary">
+                <Share2 className="w-4 h-4 mr-2 text-tech-primary" />
+                Social
+              </TabsTrigger>
+              <TabsTrigger value="design" className="data-[state=active]:bg-tech-primary">
+                <Palette className="w-4 h-4 mr-2 text-tech-primary" />
+                Design
+              </TabsTrigger>
+              <TabsTrigger value="forms" className="data-[state=active]:bg-tech-primary">
+                <Mail className="w-4 h-4 mr-2 text-tech-primary" />
+                Formulários
               </TabsTrigger>
             </TabsList>
 
+            {/* WordPress Tab */}
             <TabsContent value="wordpress">
               <div className="grid lg:grid-cols-2 gap-6">
                 {/* Configuration */}
@@ -259,12 +338,13 @@ const Management = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="site">
+            {/* General Tab */}
+            <TabsContent value="general">
               <Card className="bg-tech-gray/50 border-tech-lightGray/20">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
                     <Settings className="w-5 h-5 mr-2 text-tech-primary" />
-                    Configurações do Site
+                    Configurações Gerais
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -274,44 +354,372 @@ const Management = () => {
                     </Label>
                     <Input
                       id="site-title"
-                      value={wpConfig.siteTitle || ''}
-                      onChange={(e) => setWpConfig({...wpConfig, siteTitle: e.target.value})}
+                      value={siteConfig.siteTitle || wpConfig.siteTitle || ''}
+                      onChange={(e) => setSiteConfig({...siteConfig, siteTitle: e.target.value})}
                       className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
                       placeholder="DMC IT Solutions"
                     />
-                    <p className="text-gray-400 text-sm mt-1">
-                      Este título aparecerá no header e em outras partes do site
-                    </p>
                   </div>
 
                   <div>
                     <Label htmlFor="site-description" className="text-gray-300">
-                      Descrição do Site (SEO)
+                      Descrição do Site
                     </Label>
                     <Textarea
                       id="site-description"
-                      value={wpConfig.siteDescription || ''}
-                      onChange={(e) => setWpConfig({...wpConfig, siteDescription: e.target.value})}
+                      value={siteConfig.siteDescription || wpConfig.siteDescription || ''}
+                      onChange={(e) => setSiteConfig({...siteConfig, siteDescription: e.target.value})}
                       className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
                       placeholder="Especialistas em DevOps, automações, infraestrutura em nuvem"
                       rows={3}
                     />
-                    <p className="text-gray-400 text-sm mt-1">
-                      Esta descrição aparecerá nos resultados do Google e redes sociais
-                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* SEO Tab */}
+            <TabsContent value="seo">
+              <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <Search className="w-5 h-5 mr-2 text-tech-primary" />
+                    SEO & Meta Tags
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <Label htmlFor="meta-keywords" className="text-gray-300">
+                      Palavras-chave (Meta Keywords)
+                    </Label>
+                    <Input
+                      id="meta-keywords"
+                      value={siteConfig.metaKeywords || ''}
+                      onChange={(e) => setSiteConfig({...siteConfig, metaKeywords: e.target.value})}
+                      className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                      placeholder="DevOps, Cloud, AWS, GCP, Automação, IA"
+                    />
                   </div>
 
-                  <Button 
-                    onClick={handleSaveConfig}
-                    className="bg-tech-primary hover:bg-tech-primary/90"
-                  >
-                    <Save className="w-4 h-4 mr-2" />
-                    Salvar Configurações
-                  </Button>
+                  <div className="flex items-center space-x-2">
+                    <Switch
+                      checked={siteConfig.generateSitemap}
+                      onCheckedChange={(checked) => setSiteConfig({...siteConfig, generateSitemap: checked})}
+                    />
+                    <Label className="text-gray-300">Gerar Sitemap automaticamente</Label>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="robots-txt" className="text-gray-300">
+                      Robots.txt
+                    </Label>
+                    <Textarea
+                      id="robots-txt"
+                      value={siteConfig.robotsTxt || ''}
+                      onChange={(e) => setSiteConfig({...siteConfig, robotsTxt: e.target.value})}
+                      className="bg-tech-dark/50 border-tech-lightGray/30 text-white font-mono text-sm"
+                      rows={6}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Analytics Tab */}
+            <TabsContent value="analytics">
+              <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <BarChart3 className="w-5 h-5 mr-2 text-tech-primary" />
+                    Analytics & Tracking
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <Label htmlFor="google-analytics" className="text-gray-300">
+                      Google Analytics ID
+                    </Label>
+                    <Input
+                      id="google-analytics"
+                      value={siteConfig.googleAnalyticsId || ''}
+                      onChange={(e) => setSiteConfig({...siteConfig, googleAnalyticsId: e.target.value})}
+                      className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                      placeholder="G-XXXXXXXXXX"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="matomo-url" className="text-gray-300">
+                        Matomo URL
+                      </Label>
+                      <Input
+                        id="matomo-url"
+                        value={siteConfig.matomoUrl || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, matomoUrl: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="https://analytics.exemplo.com/"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="matomo-site-id" className="text-gray-300">
+                        Matomo Site ID
+                      </Label>
+                      <Input
+                        id="matomo-site-id"
+                        value={siteConfig.matomoSiteId || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, matomoSiteId: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="plausible-domain" className="text-gray-300">
+                      Plausible Domain
+                    </Label>
+                    <Input
+                      id="plausible-domain"
+                      value={siteConfig.plausibleDomain || ''}
+                      onChange={(e) => setSiteConfig({...siteConfig, plausibleDomain: e.target.value})}
+                      className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                      placeholder="exemplo.com"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Social Tab */}
+            <TabsContent value="social">
+              <div className="grid lg:grid-cols-2 gap-6">
+                <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                  <CardHeader>
+                    <CardTitle className="text-white">Links das Redes Sociais</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <Label htmlFor="facebook-url" className="text-gray-300">Facebook</Label>
+                      <Input
+                        id="facebook-url"
+                        value={siteConfig.facebookUrl || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, facebookUrl: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="https://facebook.com/empresa"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="twitter-url" className="text-gray-300">Twitter</Label>
+                      <Input
+                        id="twitter-url"
+                        value={siteConfig.twitterUrl || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, twitterUrl: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="https://twitter.com/empresa"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="instagram-url" className="text-gray-300">Instagram</Label>
+                      <Input
+                        id="instagram-url"
+                        value={siteConfig.instagramUrl || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, instagramUrl: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="https://instagram.com/empresa"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="linkedin-url" className="text-gray-300">LinkedIn</Label>
+                      <Input
+                        id="linkedin-url"
+                        value={siteConfig.linkedinUrl || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, linkedinUrl: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="https://linkedin.com/company/empresa"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                  <CardHeader>
+                    <CardTitle className="text-white">Open Graph & Social Sharing</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <Label htmlFor="og-title" className="text-gray-300">Título para Redes Sociais</Label>
+                      <Input
+                        id="og-title"
+                        value={siteConfig.ogTitle || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, ogTitle: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="DMC IT Solutions - DevOps e Cloud"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="og-description" className="text-gray-300">Descrição para Redes Sociais</Label>
+                      <Textarea
+                        id="og-description"
+                        value={siteConfig.ogDescription || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, ogDescription: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        rows={3}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="og-image" className="text-gray-300">URL da Imagem de Compartilhamento</Label>
+                      <Input
+                        id="og-image"
+                        value={siteConfig.ogImage || ''}
+                        onChange={(e) => setSiteConfig({...siteConfig, ogImage: e.target.value})}
+                        className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                        placeholder="https://exemplo.com/imagem.jpg"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Design Tab */}
+            <TabsContent value="design">
+              <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <Palette className="w-5 h-5 mr-2 text-tech-primary" />
+                    Personalização Visual
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="primary-color" className="text-gray-300">Cor Primária</Label>
+                      <div className="flex gap-2">
+                        <Input
+                          id="primary-color"
+                          type="color"
+                          value={siteConfig.primaryColor || '#3B82F6'}
+                          onChange={(e) => setSiteConfig({...siteConfig, primaryColor: e.target.value})}
+                          className="w-16 h-10 bg-tech-dark/50 border-tech-lightGray/30"
+                        />
+                        <Input
+                          value={siteConfig.primaryColor || '#3B82F6'}
+                          onChange={(e) => setSiteConfig({...siteConfig, primaryColor: e.target.value})}
+                          className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                          placeholder="#3B82F6"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Label htmlFor="secondary-color" className="text-gray-300">Cor Secundária</Label>
+                      <div className="flex gap-2">
+                        <Input
+                          id="secondary-color"
+                          type="color"
+                          value={siteConfig.secondaryColor || '#1E40AF'}
+                          onChange={(e) => setSiteConfig({...siteConfig, secondaryColor: e.target.value})}
+                          className="w-16 h-10 bg-tech-dark/50 border-tech-lightGray/30"
+                        />
+                        <Input
+                          value={siteConfig.secondaryColor || '#1E40AF'}
+                          onChange={(e) => setSiteConfig({...siteConfig, secondaryColor: e.target.value})}
+                          className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                          placeholder="#1E40AF"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="font-family" className="text-gray-300">Família da Fonte</Label>
+                    <select
+                      value={siteConfig.fontFamily || 'Inter'}
+                      onChange={(e) => setSiteConfig({...siteConfig, fontFamily: e.target.value})}
+                      className="w-full bg-tech-dark/50 border border-tech-lightGray/30 text-white rounded-md px-3 py-2"
+                    >
+                      <option value="Inter">Inter</option>
+                      <option value="Roboto">Roboto</option>
+                      <option value="Open Sans">Open Sans</option>
+                      <option value="Lato">Lato</option>
+                      <option value="Montserrat">Montserrat</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="theme" className="text-gray-300">Tema</Label>
+                    <select
+                      value={siteConfig.theme || 'dark'}
+                      onChange={(e) => setSiteConfig({...siteConfig, theme: e.target.value})}
+                      className="w-full bg-tech-dark/50 border border-tech-lightGray/30 text-white rounded-md px-3 py-2"
+                    >
+                      <option value="dark">Escuro</option>
+                      <option value="light">Claro</option>
+                      <option value="auto">Automático</option>
+                    </select>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            {/* Forms Tab */}
+            <TabsContent value="forms">
+              <Card className="bg-tech-gray/50 border-tech-lightGray/20">
+                <CardHeader>
+                  <CardTitle className="text-white flex items-center">
+                    <Mail className="w-5 h-5 mr-2 text-tech-primary" />
+                    Configuração de Formulários
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="flex items-center space-x-2">
+                    <Switch
+                      checked={siteConfig.contactFormEnabled}
+                      onCheckedChange={(checked) => setSiteConfig({...siteConfig, contactFormEnabled: checked})}
+                    />
+                    <Label className="text-gray-300">Habilitar formulário de contato</Label>
+                  </div>
+
+                  {siteConfig.contactFormEnabled && (
+                    <div className="space-y-4 p-4 border border-tech-lightGray/20 rounded-lg">
+                      <div>
+                        <Label htmlFor="contact-email" className="text-gray-300">
+                          Email de destino
+                        </Label>
+                        <Input
+                          id="contact-email"
+                          value={siteConfig.contactFormEmail || ''}
+                          onChange={(e) => setSiteConfig({...siteConfig, contactFormEmail: e.target.value})}
+                          className="bg-tech-dark/50 border-tech-lightGray/30 text-white"
+                          placeholder="contato@empresa.com"
+                        />
+                      </div>
+
+                      <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4">
+                        <h4 className="text-yellow-400 font-medium mb-2">⚠️ Configuração SMTP</h4>
+                        <p className="text-gray-300 text-sm">
+                          Para funcionalidade completa de envio de emails, será necessário configurar um servidor SMTP ou serviço como Resend. 
+                          Esta funcionalidade requer edge functions e será implementada em uma próxima etapa.
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </TabsContent>
           </Tabs>
+
+          {/* Save Button */}
+          <div className="mt-8 flex justify-end">
+            <Button 
+              onClick={handleSaveConfig}
+              className="bg-tech-primary hover:bg-tech-primary/90"
+              size="lg"
+            >
+              <Save className="w-4 h-4 mr-2" />
+              Salvar Todas as Configurações
+            </Button>
+          </div>
         </div>
       </div>
     </div>
