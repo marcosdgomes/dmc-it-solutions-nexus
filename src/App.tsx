@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import DmcAdmin from "./pages/DmcAdmin";
+import Management from "./pages/Management";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
