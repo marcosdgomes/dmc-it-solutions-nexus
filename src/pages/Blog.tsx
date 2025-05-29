@@ -5,77 +5,30 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ArrowDown, Search, Calendar, User, ExternalLink } from 'lucide-react';
+import { useWordPress } from '@/hooks/useWordPress';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
-
-  const blogPosts = [
-    {
-      title: "Como Implementar CI/CD na sua Empresa em 2024",
-      excerpt: "Guia completo para implementação de pipelines de CI/CD eficientes, desde a configuração inicial até as melhores práticas de deployment automático.",
-      author: "DMC Team",
-      date: "2024-01-15",
-      category: "DevOps",
-      image: "photo-1461749280684-dccba630e2f6",
-      readTime: "8 min",
-      tags: ["CI/CD", "DevOps", "Automation"]
-    },
-    {
-      title: "Migração para Cloud: Estratégias e Armadilhas",
-      excerpt: "Evite os erros mais comuns na migração para cloud e aprenda as melhores estratégias para uma transição suave e econômica.",
-      author: "DMC Team",
-      date: "2024-01-10",
-      category: "Cloud",
-      image: "photo-1518770660439-4636190af475",
-      readTime: "12 min",
-      tags: ["Cloud", "Migration", "AWS", "GCP"]
-    },
-    {
-      title: "Automação com IA: O Futuro dos Processos Empresariais",
-      excerpt: "Descubra como a inteligência artificial está revolucionando a automação de processos e como implementar essas soluções na sua empresa.",
-      author: "DMC Team",
-      date: "2024-01-05",
-      category: "AI",
-      image: "photo-1485827404703-89b55fcc595e",
-      readTime: "10 min",
-      tags: ["AI", "Automation", "OpenAI", "N8N"]
-    },
-    {
-      title: "Monitoramento Avançado: Observabilidade Completa",
-      excerpt: "Implemente sistemas de monitoramento robustos com Grafana, Prometheus e Loki para ter visibilidade total da sua infraestrutura.",
-      author: "DMC Team",
-      date: "2024-01-01",
-      category: "Monitoring",
-      image: "photo-1487058792275-0ad4aaf24ca7",
-      readTime: "15 min",
-      tags: ["Monitoring", "Grafana", "Prometheus", "Observability"]
-    },
-    {
-      title: "Kubernetes na Prática: Do Zero à Produção",
-      excerpt: "Tutorial completo para implementar Kubernetes em produção, incluindo configurações de segurança, networking e best practices.",
-      author: "DMC Team",
-      date: "2023-12-28",
-      category: "Infrastructure",
-      image: "photo-1605810230434-7631ac76ec81",
-      readTime: "20 min",
-      tags: ["Kubernetes", "Docker", "Infrastructure", "DevOps"]
-    },
-    {
-      title: "Segurança em DevOps: Implementando DevSecOps",
-      excerpt: "Integre segurança no seu pipeline de desenvolvimento desde o início, criando uma cultura de DevSecOps na sua organização.",
-      author: "DMC Team",
-      date: "2023-12-25",
-      category: "Security",
-      image: "photo-1498050108023-c5249f4df085",
-      readTime: "18 min",
-      tags: ["Security", "DevSecOps", "Best Practices"]
-    }
-  ];
+  const { posts, isLoading, config } = useWordPress();
 
   const categories = ["Todos", "DevOps", "Cloud", "AI", "Monitoring", "Infrastructure", "Security"];
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
-  const filteredPosts = blogPosts.filter(post => {
+  // Transform WordPress posts to match the existing structure
+  const transformedPosts = posts.map(post => ({
+    title: post.title.rendered.replace(/<[^>]*>/g, ''), // Remove HTML tags
+    excerpt: post.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 200) + '...', // Remove HTML and limit length
+    author: "DMC Team",
+    date: post.date,
+    category: "WordPress",
+    image: "photo-1461749280684-dccba630e2f6", // Default image
+    readTime: "5 min",
+    tags: ["WordPress", "Blog"],
+    slug: post.slug,
+    id: post.id
+  }));
+
+  const filteredPosts = transformedPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "Todos" || post.category === selectedCategory;
@@ -138,7 +91,22 @@ const Blog = () => {
       {/* Blog Posts */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          {filteredPosts.length === 0 ? (
+          {!config.apiUrl ? (
+            <div className="text-center py-16">
+              <p className="text-gray-300 text-lg mb-4">Configure a API do WordPress no Management para exibir posts.</p>
+              <Button 
+                onClick={() => window.location.href = '/management'}
+                className="bg-tech-primary hover:bg-tech-primary/90"
+              >
+                Ir para Management
+              </Button>
+            </div>
+          ) : isLoading ? (
+            <div className="text-center py-16">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-tech-primary mx-auto mb-4"></div>
+              <p className="text-gray-300 text-lg">Carregando posts...</p>
+            </div>
+          ) : filteredPosts.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-gray-300 text-lg">Nenhum artigo encontrado.</p>
             </div>
@@ -146,7 +114,7 @@ const Blog = () => {
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
               {filteredPosts.map((post, index) => (
                 <article 
-                  key={index}
+                  key={post.id}
                   className="tech-card hover-lift animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
