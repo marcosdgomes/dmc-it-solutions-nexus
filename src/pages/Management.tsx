@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { useWordPress } from '@/hooks/useWordPress'
@@ -13,7 +12,7 @@ import { Badge } from '@/components/ui/badge'
 import { useToast } from '@/hooks/use-toast'
 import { 
   LogOut, 
-  Wordpress, 
+  Globe, 
   RefreshCw, 
   CheckCircle, 
   XCircle,
@@ -102,7 +101,7 @@ const Management = () => {
           <Tabs defaultValue="wordpress" className="space-y-6">
             <TabsList className="bg-tech-gray/50">
               <TabsTrigger value="wordpress" className="data-[state=active]:bg-tech-primary">
-                <Wordpress className="w-4 h-4 mr-2" />
+                <Globe className="w-4 h-4 mr-2 text-tech-primary" />
                 WordPress
               </TabsTrigger>
             </TabsList>
@@ -113,7 +112,7 @@ const Management = () => {
                 <Card className="bg-tech-gray/50 border-tech-lightGray/20">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center">
-                      <Wordpress className="w-5 h-5 mr-2 text-tech-primary" />
+                      <Globe className="w-5 h-5 mr-2 text-tech-primary" />
                       Configuração WordPress
                     </CardTitle>
                   </CardHeader>
@@ -217,7 +216,7 @@ const Management = () => {
                   <CardContent>
                     {posts.length === 0 ? (
                       <div className="text-center py-8">
-                        <Wordpress className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                        <Globe className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                         <p className="text-gray-400">
                           {config.apiUrl ? 'Nenhum post encontrado' : 'Configure a API do WordPress'}
                         </p>
