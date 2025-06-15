@@ -9,13 +9,128 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      app_settings: {
+        Row: {
+          created_at: string
+          id: string
+          key: string
+          updated_at: string
+          value: Json
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          key: string
+          updated_at?: string
+          value: Json
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          key?: string
+          updated_at?: string
+          value?: Json
+        }
+        Relationships: []
+      }
+      instances: {
+        Row: {
+          auth_server_url: string
+          client_id: string
+          client_secret: string
+          created_at: string
+          id: string
+          name: string
+          realm: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          auth_server_url: string
+          client_id: string
+          client_secret: string
+          created_at?: string
+          id?: string
+          name: string
+          realm: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          auth_server_url?: string
+          client_id?: string
+          client_secret?: string
+          created_at?: string
+          id?: string
+          name?: string
+          realm?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      keycloak_settings: {
+        Row: {
+          auth_server_url: string | null
+          client_secret: string | null
+          created_at: string | null
+          enabled: boolean | null
+          favicon_url: string | null
+          id: string
+          logo_url: string | null
+          realm: string | null
+          resource: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          auth_server_url?: string | null
+          client_secret?: string | null
+          created_at?: string | null
+          enabled?: boolean | null
+          favicon_url?: string | null
+          id?: string
+          logo_url?: string | null
+          realm?: string | null
+          resource?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          auth_server_url?: string | null
+          client_secret?: string | null
+          created_at?: string | null
+          enabled?: boolean | null
+          favicon_url?: string | null
+          id?: string
+          logo_url?: string | null
+          realm?: string | null
+          resource?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_public_qiam_config: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          enabled: boolean
+          auth_server_url: string
+          realm: string
+          resource: string
+          logo_url: string
+          favicon_url: string
+        }[]
+      }
+      is_public_setting: {
+        Args: { setting_key: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
