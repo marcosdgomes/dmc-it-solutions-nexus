@@ -29,11 +29,12 @@ const MouseGlow = () => {
 
       // Enhanced glow for interactive elements
       if (target.matches('a, button, [role="button"], input, textarea, select')) {
-        glow.style.background = `radial-gradient(circle 120px at center, 
-          rgba(56, 88, 233, 0.15) 0%, 
-          rgba(56, 88, 233, 0.08) 40%, 
-          transparent 70%)`;
-        glow.style.transform = `translate(-50%, -50%) scale(1.2)`;
+        glow.style.background = `radial-gradient(circle 200px at center, 
+          rgba(56, 88, 233, 0.25) 0%, 
+          rgba(56, 88, 233, 0.15) 30%, 
+          rgba(56, 88, 233, 0.08) 60%, 
+          transparent 80%)`;
+        glow.style.transform = `translate(-50%, -50%) scale(1.3)`;
       }
     };
 
@@ -42,10 +43,11 @@ const MouseGlow = () => {
       if (!glow) return;
 
       // Reset to default glow
-      glow.style.background = `radial-gradient(circle 100px at center, 
-        rgba(148, 163, 184, 0.08) 0%, 
-        rgba(148, 163, 184, 0.04) 40%, 
-        transparent 70%)`;
+      glow.style.background = `radial-gradient(circle 180px at center, 
+        rgba(148, 163, 184, 0.15) 0%, 
+        rgba(148, 163, 184, 0.08) 40%, 
+        rgba(148, 163, 184, 0.04) 70%, 
+        transparent 85%)`;
       glow.style.transform = `translate(-50%, -50%) scale(1)`;
     };
 
@@ -54,7 +56,7 @@ const MouseGlow = () => {
       if (!glow) return;
 
       // Smooth following with easing
-      const ease = 0.15;
+      const ease = 0.12;
       currentPosition.current.x += (mousePosition.current.x - currentPosition.current.x) * ease;
       currentPosition.current.y += (mousePosition.current.y - currentPosition.current.y) * ease;
 
@@ -97,17 +99,18 @@ const MouseGlow = () => {
       ref={glowRef}
       className="fixed pointer-events-none z-50 w-0 h-0"
       style={{
-        background: `radial-gradient(circle 100px at center, 
-          rgba(148, 163, 184, 0.08) 0%, 
-          rgba(148, 163, 184, 0.04) 40%, 
-          transparent 70%)`,
+        background: `radial-gradient(circle 180px at center, 
+          rgba(148, 163, 184, 0.15) 0%, 
+          rgba(148, 163, 184, 0.08) 40%, 
+          rgba(148, 163, 184, 0.04) 70%, 
+          transparent 85%)`,
         transform: 'translate(-50%, -50%)',
         transition: 'background 0.3s ease, transform 0.3s ease',
         mixBlendMode: 'screen',
-        width: '200px',
-        height: '200px',
+        width: '360px',
+        height: '360px',
         borderRadius: '50%',
-        filter: 'blur(1px)',
+        filter: 'blur(2px)',
       }}
     />
   );
