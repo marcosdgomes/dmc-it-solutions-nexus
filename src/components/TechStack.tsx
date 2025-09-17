@@ -44,28 +44,6 @@ const TechStack = () => {
           ))}
         </div>
 
-        {/* Highlight Section */}
-        <div className="mt-16 text-center">
-          <div className="tech-card glow-effect max-w-4xl mx-auto animate-fade-in">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Por que escolher nossa <span className="gradient-text">stack</span>?
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-tech-primary mb-2">100%</div>
-                <div className="text-gray-300">Open Source</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-tech-primary mb-2">99.9%</div>
-                <div className="text-gray-300">Confiabilidade</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-tech-primary mb-2">24/7</div>
-                <div className="text-gray-300">Disponibilidade</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

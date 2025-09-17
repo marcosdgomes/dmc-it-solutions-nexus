@@ -10,25 +10,16 @@ const Products = () => {
       description: "Plataforma de deploy automatizado que acelera suas entregas em até 90% com pipelines CI/CD otimizados.",
       icon: <Zap className="w-8 h-8" />,
       features: ["Deploy automático", "Rollback inteligente", "Monitoramento integrado"],
-      status: "Disponível",
+      status: "Em desenvolvimento",
       badge: "Popular",
       color: "from-tech-primary to-blue-400"
-    },
-    {
-      title: "DMC Monitor Pro",
-      description: "Solução completa de monitoramento e alertas para infraestrutura cloud com dashboards personalizáveis.",
-      icon: <Database className="w-8 h-8" />,
-      features: ["Alertas inteligentes", "Métricas customizadas", "Relatórios automatizados"],
-      status: "Disponível",
-      badge: "Novo",
-      color: "from-green-500 to-emerald-400"
     },
     {
       title: "DMC AI Assistant",
       description: "Assistente de IA especializado em DevOps que otimiza processos e automatiza tarefas complexas.",
       icon: <Cpu className="w-8 h-8" />,
       features: ["IA conversacional", "Automação inteligente", "Aprendizado contínuo"],
-      status: "Beta",
+      status: "Em desenvolvimento",
       badge: "IA",
       color: "from-purple-500 to-pink-400"
     },
@@ -126,19 +117,13 @@ const Products = () => {
             Desenvolvemos MVPs e APIs sob medida para sua necessidade específica. 
             Desde a concepção até o deploy, cuidamos de todo o processo de desenvolvimento.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button 
               size="lg"
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8"
+              onClick={() => window.location.href = '#contact'}
             >
-              Solicitar Orçamento
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-tech-primary text-tech-primary hover:bg-tech-primary hover:text-white px-8"
-            >
-              Ver Portfólio
+              Fale Conosco
             </Button>
           </div>
         </div>

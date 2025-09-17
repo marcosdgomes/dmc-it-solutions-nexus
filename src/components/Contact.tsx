@@ -30,12 +30,6 @@ const Contact = () => {
 
   const contactMethods = [
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      value: COMPANY_INFO.email,
-      action: `mailto:${COMPANY_INFO.email}`
-    },
-    {
       icon: <Phone className="w-6 h-6" />,
       title: "Telefone",
       value: COMPANY_INFO.phone,

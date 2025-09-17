@@ -79,10 +79,6 @@ const Hero = () => {
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 mb-8 bg-tech-primary/10 border border-tech-primary/20 rounded-full backdrop-blur-sm">
-            <span className="text-tech-primary text-sm font-medium">🚀 Transformação Digital Acelerada</span>
-          </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -116,22 +112,14 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-xl mx-auto">
             <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
               <div className="text-3xl font-bold text-tech-primary mb-2">50+</div>
               <div className="text-gray-400 text-sm">Projetos Entregues</div>
             </div>
             <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
-              <div className="text-3xl font-bold text-tech-primary mb-2">99.9%</div>
-              <div className="text-gray-400 text-sm">Uptime Garantido</div>
-            </div>
-            <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.6s' }}>
               <div className="text-3xl font-bold text-tech-primary mb-2">24/7</div>
               <div className="text-gray-400 text-sm">Suporte Técnico</div>
-            </div>
-            <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.8s' }}>
-              <div className="text-3xl font-bold text-tech-primary mb-2">5+</div>
-              <div className="text-gray-400 text-sm">Anos de Experiência</div>
             </div>
           </div>
         </div>

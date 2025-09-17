@@ -83,13 +83,13 @@ const Footer = () => {
 
             <div className="space-y-2">
               <div className="text-gray-300">
-                <span className="text-tech-primary">Email:</span> {COMPANY_INFO.email}
-              </div>
-              <div className="text-gray-300">
                 <span className="text-tech-primary">Telefone:</span> {COMPANY_INFO.phone}
               </div>
               <div className="text-gray-300">
                 <span className="text-tech-primary">Localização:</span> {COMPANY_INFO.address}
+              </div>
+              <div className="text-gray-300">
+                <span className="text-tech-primary">CNPJ:</span> {COMPANY_INFO.cnpj}
               </div>
             </div>
           </div>
@@ -146,42 +146,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Links & Newsletter */}
+        {/* Copyright */}
         <div className="border-t border-tech-lightGray/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-6">
-              <span className="text-gray-300">Siga-nos:</span>
-              <div className="flex space-x-4">
-                <a 
-                  href={SOCIAL_LINKS.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-tech-primary transition-all duration-200 hover:scale-110 transform"
-                >
-                  LinkedIn
-                </a>
-                <a 
-                  href={SOCIAL_LINKS.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-tech-primary transition-all duration-200 hover:scale-110 transform"
-                >
-                  GitHub
-                </a>
-                <a 
-                  href={SOCIAL_LINKS.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-tech-primary transition-all duration-200 hover:scale-110 transform"
-                >
-                  Twitter
-                </a>
-              </div>
-            </div>
-
-            <div className="text-gray-300">
-              © {currentYear} {COMPANY_INFO.name}. Todos os direitos reservados.
-            </div>
+          <div className="text-center text-gray-300">
+            © {currentYear} {COMPANY_INFO.name}. Todos os direitos reservados.
           </div>
         </div>
 

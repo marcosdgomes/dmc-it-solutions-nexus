@@ -7,9 +7,9 @@ export const getCompanyInfo = () => {
     domain: "dmcitsolutions.com",
     description: config.siteDescription || "Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada",
     email: "contato@dmcitsolutions.com",
-    phone: "+55 (11) 99999-9999",
-    whatsapp: "5511999999999",
-    address: "São Paulo, SP - Brasil"
+    phone: "+55 (45) 988321566",
+    whatsapp: "5545988321566",
+    address: "Belo Horizonte, MG - Brasil"
   }
 }
 
@@ -18,9 +18,10 @@ export const COMPANY_INFO = {
   domain: "dmcitsolutions.com",
   description: "Especialistas em DevOps, automações, infraestrutura em nuvem, integração de sistemas e IA aplicada",
   email: "contato@dmcitsolutions.com",
-  phone: "+55 (11) 99999-9999",
-  whatsapp: "5511999999999",
-  address: "São Paulo, SP - Brasil"
+  phone: "+55 (45) 988321566",
+  whatsapp: "5545988321566",
+  address: "Belo Horizonte, MG - Brasil",
+  cnpj: "55.670.086/0001-51"
 };
 
 export const NAVIGATION_ITEMS = [
