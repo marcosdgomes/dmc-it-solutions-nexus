@@ -92,9 +92,9 @@ const About = () => {
           <div className="relative animate-fade-in">
             <div className="tech-card glow-effect">
               <div className="text-center p-8">
-                <div className="text-5xl font-bold text-tech-primary mb-4">99.9%</div>
-                <div className="text-xl text-white mb-2">Taxa de Sucesso</div>
-                <div className="text-gray-400">em projetos entregues</div>
+                <div className="text-5xl font-bold text-tech-primary mb-4">5+</div>
+                <div className="text-xl text-white mb-2">Anos de</div>
+                <div className="text-gray-400">Experiência DevOps</div>
               </div>
             </div>
             
