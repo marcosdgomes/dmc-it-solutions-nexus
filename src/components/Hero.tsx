@@ -114,7 +114,7 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-xl mx-auto">
             <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
-              <div className="text-3xl font-bold text-tech-primary mb-2">50+</div>
+              <div className="text-3xl font-bold text-tech-primary mb-2">20+</div>
               <div className="text-gray-400 text-sm">Projetos Entregues</div>
             </div>
             <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.4s' }}>

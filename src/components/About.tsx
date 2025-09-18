@@ -100,7 +100,7 @@ const About = () => {
             
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="tech-card text-center">
-                <div className="text-2xl font-bold text-tech-primary mb-2">50+</div>
+                <div className="text-2xl font-bold text-tech-primary mb-2">20+</div>
                 <div className="text-gray-300 text-sm">Projetos</div>
               </div>
               <div className="tech-card text-center">
