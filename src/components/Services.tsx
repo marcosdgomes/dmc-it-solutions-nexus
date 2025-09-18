@@ -50,18 +50,9 @@ const Services = () => {
               <h3 className="text-xl font-bold text-white mb-3 group-hover:text-tech-primary transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-300 text-sm leading-relaxed mb-4">
+              <p className="text-gray-300 text-sm leading-relaxed">
                 {service.description}
               </p>
-
-              {/* CTA */}
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-tech-primary hover:text-white hover:bg-tech-primary w-full"
-              >
-                Saiba Mais
-              </Button>
             </div>
           ))}
         </div>
@@ -73,13 +64,10 @@ const Services = () => {
               <Zap className="w-12 h-12 mx-auto" />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">DevOps sob Demanda</h3>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 text-sm">
               Consultoria especializada e implementação de práticas DevOps 
               para acelerar seus deployments e melhorar a qualidade do software.
             </p>
-            <Button className="bg-tech-primary hover:bg-tech-primary/90 text-white w-full">
-              Contratar Agora
-            </Button>
           </div>
 
           <div className="tech-card text-center hover-lift glow-effect animate-fade-in" style={{ animationDelay: '0.2s' }}>
@@ -87,13 +75,10 @@ const Services = () => {
               <Brain className="w-12 h-12 mx-auto" />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Automações com IA</h3>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 text-sm">
               Implementação de soluções inteligentes usando N8N, OpenAI e 
               agentes de IA para automatizar processos complexos.
             </p>
-            <Button className="bg-tech-primary hover:bg-tech-primary/90 text-white w-full">
-              Automatizar Processos
-            </Button>
           </div>
 
           <div className="tech-card text-center hover-lift glow-effect animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -101,13 +86,10 @@ const Services = () => {
               <Shield className="w-12 h-12 mx-auto" />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Suporte 24/7</h3>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 text-sm">
               Monitoramento contínuo, manutenção proativa e suporte técnico 
               especializado para garantir máxima disponibilidade.
             </p>
-            <Button className="bg-tech-primary hover:bg-tech-primary/90 text-white w-full">
-              Solicitar Suporte
-            </Button>
           </div>
         </div>
       </div>
