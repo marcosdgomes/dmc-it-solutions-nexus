@@ -6,44 +6,44 @@ import { ExternalLink, TrendingUp, Clock, DollarSign } from 'lucide-react';
 const Cases = () => {
   const cases = [
     {
-      title: "E-commerce com 10M+ de acessos",
-      company: "RetailTech",
-      description: "Migração completa para cloud e implementação de arquitetura serverless que reduziu custos em 60% e aumentou a performance em 300%.",
+      title: "Grupo de Jornal com 25-30M de acessos mensais",
+      company: "MediaGroup",
+      description: "Migração completa para cloud e implementação de arquitetura serverless que otimizou a entrega de conteúdo e reduziu custos operacionais em 60%.",
       results: [
         { metric: "60%", label: "Redução de Custos" },
-        { metric: "300%", label: "Melhoria de Performance" },
+        { metric: "200%", label: "Melhoria de Performance" },
         { metric: "99.99%", label: "Uptime Alcançado" }
       ],
-      tags: ["AWS", "Kubernetes", "CI/CD", "Monitoring"],
+      tags: ["AWS", "CDN", "CI/CD", "Monitoring"],
       image: "photo-1460925895917-afdab827c52f",
       color: "from-blue-500 to-purple-600"
     },
     {
-      title: "Fintech com Milhões de Transações",
-      company: "PayFlow",
-      description: "Implementação de pipeline DevOps completo com deploy automático, monitoramento avançado e compliance bancário.",
+      title: "Consultoria em Nuvem Privada",
+      company: "TechCorp",
+      description: "Implementação de infraestrutura bare metal com nuvem privada, garantindo máxima performance e controle total sobre os dados.",
       results: [
-        { metric: "90%", label: "Redução no Tempo de Deploy" },
+        { metric: "75%", label: "Melhoria de Performance" },
         { metric: "99.9%", label: "Disponibilidade do Sistema" },
-        { metric: "50%", label: "Menos Incidentes" }
+        { metric: "100%", label: "Controle de Dados" }
       ],
-      tags: ["Docker", "GitLab CI/CD", "Grafana", "Security"],
+      tags: ["Bare Metal", "Private Cloud", "Kubernetes", "Security"],
       image: "photo-1551288049-bebda4e38f71",
       color: "from-green-500 to-teal-600"
-    },
-    {
-      title: "Startup de IA Generativa",
-      company: "AInovate",
-      description: "Criação de infraestrutura escalável para processamento de modelos de IA com auto-scaling e otimização de custos GPU.",
-      results: [
-        { metric: "80%", label: "Economia em GPU" },
-        { metric: "5x", label: "Velocidade de Processamento" },
-        { metric: "24/7", label: "Disponibilidade" }
-      ],
-      tags: ["GCP", "Terraform", "AI/ML", "Auto-scaling"],
-      image: "photo-1485827404703-89b55fcc595e",
-      color: "from-purple-500 to-pink-600"
     }
+    // {
+    //   title: "Startup de IA Generativa",
+    //   company: "AInovate",
+    //   description: "Criação de infraestrutura escalável para processamento de modelos de IA com auto-scaling e otimização de custos GPU.",
+    //   results: [
+    //     { metric: "80%", label: "Economia em GPU" },
+    //     { metric: "5x", label: "Velocidade de Processamento" },
+    //     { metric: "24/7", label: "Disponibilidade" }
+    //   ],
+    //   tags: ["GCP", "Terraform", "AI/ML", "Auto-scaling"],
+    //   image: "photo-1485827404703-89b55fcc595e",
+    //   color: "from-purple-500 to-pink-600"
+    // }
   ];
 
   return (
