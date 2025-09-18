@@ -23,7 +23,7 @@ const About = () => {
 
   const expertise = [
     "Mais de 5 anos de experiência em DevOps e Cloud",
-    "Certificações em AWS, GCP e Azure",
+    "Certificações de Qualidade ISTQB Certificações em AWS, GCP e Azure",
     "Especialistas em automação e IA aplicada",
     "Metodologias ágeis e entrega contínua",
     "Suporte 24/7 e monitoramento proativo",
