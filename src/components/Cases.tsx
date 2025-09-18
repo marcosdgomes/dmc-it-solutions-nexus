@@ -120,13 +120,6 @@ const Cases = () => {
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  <Button 
-                    className={`bg-gradient-to-r ${caseStudy.color} hover:opacity-90 text-white`}
-                  >
-                    Ver Case Completo
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
                 </div>
               </div>
             </div>

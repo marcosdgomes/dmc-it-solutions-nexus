@@ -10,7 +10,7 @@ const Products = () => {
       description: "Plataforma de deploy automatizado que acelera suas entregas em até 90% com pipelines CI/CD otimizados.",
       icon: <Zap className="w-8 h-8" />,
       features: ["Deploy automático", "Rollback inteligente", "Monitoramento integrado"],
-      status: "Em desenvolvimento",
+      status: "Em Desenvolvimento",
       badge: "Popular",
       color: "from-tech-primary to-blue-400"
     },
@@ -19,7 +19,7 @@ const Products = () => {
       description: "Assistente de IA especializado em DevOps que otimiza processos e automatiza tarefas complexas.",
       icon: <Cpu className="w-8 h-8" />,
       features: ["IA conversacional", "Automação inteligente", "Aprendizado contínuo"],
-      status: "Em desenvolvimento",
+      status: "Em Desenvolvimento",
       badge: "IA",
       color: "from-purple-500 to-pink-400"
     },
