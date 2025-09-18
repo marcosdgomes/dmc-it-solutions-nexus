@@ -69,11 +69,12 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-tech-primary to-blue-400 rounded-lg flex items-center justify-center animate-pulse-glow">
-                <span className="text-white font-bold text-sm">DMC</span>
-              </div>
-              <span className="text-xl font-bold text-white">{COMPANY_INFO.name}</span>
+            <div className="flex items-center">
+              <img 
+                src="/logo-white.png" 
+                alt={COMPANY_INFO.name}
+                className="h-8 w-auto"
+              />
             </div>
             
             <p className="text-gray-300 leading-relaxed">
