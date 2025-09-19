@@ -1,0 +1,112 @@
+{
+  "common": {
+    "nav": {
+      "home": "Início",
+      "services": "Serviços",
+      "products": "Produtos",
+      "cases": "Cases",
+      "blog": "Blog",
+      "contact": "Contato"
+    },
+    "cta": {
+      "contact": "Fale Conosco",
+      "getInTouch": "Entre em Contato",
+      "learnMore": "Saiba Mais",
+      "viewMore": "Ver Mais"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Soluções Tecnológicas Inovadoras para o Seu Negócio",
+      "subtitle": "Transformamos ideias em realidade digital com desenvolvimento de software personalizado, consultoria em TI e automação inteligente.",
+      "ctaDemo": "Solicitar Demonstração",
+      "ctaContact": "Fale Conosco"
+    },
+    "about": {
+      "title": "Sobre Nós",
+      "subtitle": "Excelência em Tecnologia",
+      "description": "Somos uma empresa especializada em soluções tecnológicas inovadoras, oferecendo serviços de desenvolvimento de software, consultoria em TI e automação de processos. Nossa missão é transformar desafios em oportunidades através da tecnologia.",
+      "years": "Anos de Experiência",
+      "projects": "Projetos Entregues",
+      "clients": "Clientes Satisfeitos",
+      "certifications": "Certificações de Qualidade ISTQB Certificações em AWS, GCP e Azure"
+    },
+    "services": {
+      "title": "Nossos Serviços",
+      "subtitle": "Oferecemos soluções completas em tecnologia para impulsionar o crescimento do seu negócio com inovação e eficiência.",
+      "additional": {
+        "title": "Serviços Especializados",
+        "devops": {
+          "title": "DevOps & Cloud",
+          "description": "Implementação de práticas DevOps e migração para nuvem com AWS, Azure e Google Cloud."
+        },
+        "ai": {
+          "title": "Automações com IA",
+          "description": "Soluções inteligentes com Machine Learning e Inteligência Artificial para otimizar processos."
+        },
+        "support": {
+          "title": "Suporte 24/7",
+          "description": "Monitoramento contínuo e suporte técnico especializado para garantir a disponibilidade dos seus sistemas."
+        }
+      }
+    },
+    "techStack": {
+      "title": "Nossa Stack Tecnológica",
+      "subtitle": "Utilizamos as tecnologias mais modernas e confiáveis do mercado para entregar soluções robustas e escaláveis."
+    },
+    "products": {
+      "title": "Nossos Produtos",
+      "subtitle": "Soluções prontas e personalizáveis para acelerar a transformação digital da sua empresa.",
+      "mvp": {
+        "title": "Precisa de um MVP Personalizado?",
+        "description": "Desenvolvemos MVPs sob medida para validar sua ideia de negócio rapidamente.",
+        "cta": "Fale Conosco"
+      }
+    },
+    "cases": {
+      "title": "Cases de Sucesso",
+      "subtitle": "Conheça alguns dos projetos que desenvolvemos e os resultados alcançados para nossos clientes.",
+      "cta": {
+        "title": "Pronto para Começar Seu Projeto?",
+        "subtitle": "Entre em contato conosco e vamos discutir como podemos ajudar sua empresa a alcançar seus objetivos tecnológicos.",
+        "button": "Iniciar Projeto"
+      }
+    },
+    "contact": {
+      "title": "Entre em Contato",
+      "subtitle": "Vamos conversar sobre seu próximo projeto",
+      "form": {
+        "name": "Nome completo",
+        "email": "E-mail",
+        "company": "Empresa",
+        "message": "Mensagem",
+        "send": "Enviar Mensagem"
+      },
+      "info": {
+        "phone": "Telefone",
+        "location": "Localização",
+        "whatsapp": "WhatsApp",
+        "fastResponse": "Resposta Rápida"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "description": "Transformamos ideias em soluções tecnológicas inovadoras. Nossa equipe especializada está pronta para levar seu negócio ao próximo nível."
+    },
+    "navigation": {
+      "title": "Navegação"
+    },
+    "services": {
+      "title": "Serviços"
+    },
+    "products": {
+      "title": "Produtos"
+    },
+    "cta": {
+      "title": "Pronto para Inovar?",
+      "subtitle": "Transforme sua visão em realidade digital"
+    },
+    "copyright": "Todos os direitos reservados."
+  }
+}

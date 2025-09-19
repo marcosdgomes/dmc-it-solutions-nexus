@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -8,6 +9,7 @@ import { COMPANY_INFO } from '@/lib/constants';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,13 +33,13 @@ const Contact = () => {
   const contactMethods = [
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Telefone",
+      title: t('home.contact.info.phone'),
       value: COMPANY_INFO.phone,
       action: `tel:${COMPANY_INFO.phone}`
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Localização",
+      title: t('home.contact.info.location'),
       value: COMPANY_INFO.address,
       action: "#"
     }
@@ -49,11 +51,10 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Entre em <span className="gradient-text">Contato</span>
+            {t('home.contact.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Pronto para transformar sua infraestrutura? Vamos conversar sobre 
-            como podemos acelerar seu negócio com nossas soluções tecnológicas.
+            {t('home.contact.subtitle')}
           </p>
         </div>
 
@@ -68,7 +69,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-gray-300 mb-2 block">
-                    Nome Completo *
+                    {t('home.contact.form.name')} *
                   </Label>
                   <Input
                     id="name"
@@ -77,14 +78,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="bg-tech-gray/50 border-tech-lightGray/30 text-white focus:border-tech-primary"
-                    placeholder="Seu nome completo"
+                    placeholder={t('home.contact.form.name')}
                     required
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="email" className="text-gray-300 mb-2 block">
-                    Email *
+                    {t('home.contact.form.email')} *
                   </Label>
                   <Input
                     id="email"
@@ -93,14 +94,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="bg-tech-gray/50 border-tech-lightGray/30 text-white focus:border-tech-primary"
-                    placeholder="seu@email.com"
+                    placeholder={t('home.contact.form.email')}
                     required
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="company" className="text-gray-300 mb-2 block">
-                    Empresa
+                    {t('home.contact.form.company')}
                   </Label>
                   <Input
                     id="company"
@@ -109,13 +110,13 @@ const Contact = () => {
                     value={formData.company}
                     onChange={handleChange}
                     className="bg-tech-gray/50 border-tech-lightGray/30 text-white focus:border-tech-primary"
-                    placeholder="Nome da sua empresa"
+                    placeholder={t('home.contact.form.company')}
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="message" className="text-gray-300 mb-2 block">
-                    Mensagem *
+                    {t('home.contact.form.message')} *
                   </Label>
                   <Textarea
                     id="message"
@@ -123,7 +124,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="bg-tech-gray/50 border-tech-lightGray/30 text-white focus:border-tech-primary min-h-[120px]"
-                    placeholder="Conte-nos sobre seu projeto ou desafio..."
+                    placeholder={t('home.contact.form.message')}
                     required
                   />
                 </div>
@@ -132,7 +133,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-tech-primary hover:bg-tech-primary/90 text-white font-medium py-3"
                 >
-                  Enviar Mensagem
+                  {t('home.contact.form.send')}
                   <Send className="w-4 h-4 ml-2" />
                 </Button>
               </form>

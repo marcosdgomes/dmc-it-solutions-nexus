@@ -1,8 +1,11 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { CheckCircle, Target, Eye, Zap } from 'lucide-react';
 
 const About = () => {
+  const { t } = useTranslation();
+  
   const values = [
     {
       icon: <Target className="w-8 h-8 text-tech-primary" />,
@@ -23,7 +26,7 @@ const About = () => {
 
   const expertise = [
     "Mais de 5 anos de experiência em DevOps e Cloud",
-    "Certificações de Qualidade ISTQB",
+    t('home.about.certifications'),
     "Especialistas em automação e IA aplicada",
     "Metodologias ágeis e entrega contínua",
     "Suporte 24/7 e monitoramento proativo",
@@ -36,12 +39,10 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Quem <span className="gradient-text">Somos</span>
+            {t('home.about.title')}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Somos uma empresa especializada em soluções tecnológicas avançadas, 
-            dedicada a acelerar a transformação digital das organizações através 
-            de infraestrutura robusta e automações inteligentes.
+            {t('home.about.description')}
           </p>
         </div>
 
@@ -66,7 +67,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
             <h3 className="text-3xl font-bold text-white mb-6">
-              Nossa <span className="gradient-text">Experiência</span>
+              {t('home.about.subtitle')}
             </h3>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
               Com anos de experiência no mercado, nossa equipe combina conhecimento 
@@ -93,19 +94,19 @@ const About = () => {
             <div className="tech-card glow-effect">
               <div className="text-center p-8">
                 <div className="text-5xl font-bold text-tech-primary mb-4">5+</div>
-                <div className="text-xl text-white mb-2">Anos de</div>
-                <div className="text-gray-400">Experiência DevOps</div>
+                <div className="text-xl text-white mb-2">{t('home.about.years')}</div>
+                <div className="text-gray-400">DevOps</div>
               </div>
             </div>
             
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="tech-card text-center">
                 <div className="text-2xl font-bold text-tech-primary mb-2">20+</div>
-                <div className="text-gray-300 text-sm">Projetos</div>
+                <div className="text-gray-300 text-sm">{t('home.about.projects')}</div>
               </div>
               <div className="tech-card text-center">
                 <div className="text-2xl font-bold text-tech-primary mb-2">24/7</div>
-                <div className="text-gray-300 text-sm">Suporte</div>
+                <div className="text-gray-300 text-sm">{t('home.about.clients')}</div>
               </div>
             </div>
           </div>

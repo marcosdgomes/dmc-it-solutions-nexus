@@ -1,8 +1,11 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { COMPANY_INFO, NAVIGATION_ITEMS, SOCIAL_LINKS } from '@/lib/constants';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -78,16 +81,15 @@ const Footer = () => {
             </div>
             
             <p className="text-gray-300 leading-relaxed">
-              Especialistas em transformação digital, oferecemos soluções completas 
-              em DevOps, cloud e automação para acelerar seu negócio.
+              {t('footer.company.description')}
             </p>
 
             <div className="space-y-2">
               <div className="text-gray-300">
-                <span className="text-tech-primary">Telefone:</span> {COMPANY_INFO.phone}
+                <span className="text-tech-primary">{t('home.contact.info.phone')}:</span> {COMPANY_INFO.phone}
               </div>
               <div className="text-gray-300">
-                <span className="text-tech-primary">Localização:</span> {COMPANY_INFO.address}
+                <span className="text-tech-primary">{t('home.contact.info.location')}:</span> {COMPANY_INFO.address}
               </div>
               <div className="text-gray-300">
                 <span className="text-tech-primary">CNPJ:</span> {COMPANY_INFO.cnpj}
@@ -97,24 +99,20 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Navegação</h3>
+            <h3 className="text-white font-bold text-lg mb-6">{t('footer.navigation.title')}</h3>
             <ul className="space-y-3">
-              {NAVIGATION_ITEMS.map((item) => (
-                <li key={item.name}>
-                  <a 
-                    href={item.href}
-                    className="text-gray-300 hover:text-tech-primary transition-colors duration-200 hover:translate-x-1 transform"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
+              <li><a href="#home" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.home')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.services')}</a></li>
+              <li><a href="#products" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.products')}</a></li>
+              <li><a href="#cases" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.cases')}</a></li>
+              <li><a href="/blog" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.blog')}</a></li>
+              <li><a href="#contact" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.contact')}</a></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Serviços</h3>
+            <h3 className="text-white font-bold text-lg mb-6">{t('footer.services.title')}</h3>
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
@@ -129,9 +127,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Products */}
+          {/* Products & Language */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6">Produtos</h3>
+            <h3 className="text-white font-bold text-lg mb-6">{t('footer.products.title')}</h3>
             <ul className="space-y-3">
               {products.map((product) => (
                 <li key={product}>
@@ -144,13 +142,16 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+            <div className="mt-6">
+              <LanguageSwitcher variant="footer" />
+            </div>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="border-t border-tech-lightGray/20 mt-12 pt-8">
           <div className="text-center text-gray-300">
-            © {currentYear} {COMPANY_INFO.name}. Todos os direitos reservados.
+            © {currentYear} {COMPANY_INFO.name}. {t('footer.copyright')}
           </div>
         </div>
 

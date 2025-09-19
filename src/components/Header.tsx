@@ -1,9 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { NAVIGATION_ITEMS, getCompanyInfo } from '@/lib/constants';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [companyInfo, setCompanyInfo] = useState(getCompanyInfo());
@@ -48,25 +51,58 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {NAVIGATION_ITEMS.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+            <a
+              href="#home"
+              className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
+            >
+              {t('common.nav.home')}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#services"
+              className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
+            >
+              {t('common.nav.services')}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#products"
+              className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
+            >
+              {t('common.nav.products')}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#cases"
+              className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
+            >
+              {t('common.nav.cases')}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="/blog"
+              className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
+            >
+              {t('common.nav.blog')}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#contact"
+              className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
+            >
+              {t('common.nav.contact')}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex">
+          {/* Language Switcher & CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher variant="header" />
             <Button 
               className="bg-tech-primary hover:bg-tech-primary/90 text-white font-medium px-6"
               onClick={() => window.location.href = '#contact'}
             >
-              Fale Conosco
+              {t('common.cta.contact')}
             </Button>
           </div>
 
@@ -85,25 +121,58 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-tech-gray/95 backdrop-blur-md border-t border-tech-lightGray/20">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {NAVIGATION_ITEMS.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-              <div className="px-3 py-2">
+              <a
+                href="#home"
+                className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('common.nav.home')}
+              </a>
+              <a
+                href="#services"
+                className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('common.nav.services')}
+              </a>
+              <a
+                href="#products"
+                className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('common.nav.products')}
+              </a>
+              <a
+                href="#cases"
+                className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('common.nav.cases')}
+              </a>
+              <a
+                href="/blog"
+                className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('common.nav.blog')}
+              </a>
+              <a
+                href="#contact"
+                className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {t('common.nav.contact')}
+              </a>
+              <div className="px-3 py-2 flex items-center justify-between">
+                <LanguageSwitcher variant="footer" />
                 <Button 
-                  className="w-full bg-tech-primary hover:bg-tech-primary/90 text-white"
+                  className="bg-tech-primary hover:bg-tech-primary/90 text-white"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     window.location.href = '#contact';
                   }}
                 >
-                  Fale Conosco
+                  {t('common.cta.contact')}
                 </Button>
               </div>
             </div>

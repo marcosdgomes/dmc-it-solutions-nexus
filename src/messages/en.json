@@ -1,0 +1,112 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "products": "Products",
+      "cases": "Cases",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "cta": {
+      "contact": "Contact Us",
+      "getInTouch": "Get in Touch",
+      "learnMore": "Learn More",
+      "viewMore": "View More"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Innovative Technology Solutions for Your Business",
+      "subtitle": "We transform ideas into digital reality with custom software development, IT consulting, and intelligent automation.",
+      "ctaDemo": "Request Demo",
+      "ctaContact": "Contact Us"
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "Excellence in Technology",
+      "description": "We are a company specialized in innovative technology solutions, offering software development services, IT consulting, and process automation. Our mission is to transform challenges into opportunities through technology.",
+      "years": "Years of Experience",
+      "projects": "Projects Delivered",
+      "clients": "Satisfied Clients",
+      "certifications": "ISTQB Quality Certifications AWS, GCP and Azure Certifications"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "We offer complete technology solutions to drive your business growth with innovation and efficiency.",
+      "additional": {
+        "title": "Specialized Services",
+        "devops": {
+          "title": "DevOps & Cloud",
+          "description": "DevOps practices implementation and cloud migration with AWS, Azure, and Google Cloud."
+        },
+        "ai": {
+          "title": "AI Automations",
+          "description": "Intelligent solutions with Machine Learning and Artificial Intelligence to optimize processes."
+        },
+        "support": {
+          "title": "24/7 Support",
+          "description": "Continuous monitoring and specialized technical support to ensure your systems' availability."
+        }
+      }
+    },
+    "techStack": {
+      "title": "Our Technology Stack",
+      "subtitle": "We use the most modern and reliable technologies in the market to deliver robust and scalable solutions."
+    },
+    "products": {
+      "title": "Our Products",
+      "subtitle": "Ready-made and customizable solutions to accelerate your company's digital transformation.",
+      "mvp": {
+        "title": "Need a Custom MVP?",
+        "description": "We develop tailor-made MVPs to quickly validate your business idea.",
+        "cta": "Contact Us"
+      }
+    },
+    "cases": {
+      "title": "Success Stories",
+      "subtitle": "Learn about some of the projects we've developed and the results achieved for our clients.",
+      "cta": {
+        "title": "Ready to Start Your Project?",
+        "subtitle": "Contact us and let's discuss how we can help your company achieve its technological goals.",
+        "button": "Start Project"
+      }
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Let's talk about your next project",
+      "form": {
+        "name": "Full name",
+        "email": "Email",
+        "company": "Company",
+        "message": "Message",
+        "send": "Send Message"
+      },
+      "info": {
+        "phone": "Phone",
+        "location": "Location",
+        "whatsapp": "WhatsApp",
+        "fastResponse": "Fast Response"
+      }
+    }
+  },
+  "footer": {
+    "company": {
+      "description": "We transform ideas into innovative technology solutions. Our specialized team is ready to take your business to the next level."
+    },
+    "navigation": {
+      "title": "Navigation"
+    },
+    "services": {
+      "title": "Services"
+    },
+    "products": {
+      "title": "Products"
+    },
+    "cta": {
+      "title": "Ready to Innovate?",
+      "subtitle": "Transform your vision into digital reality"
+    },
+    "copyright": "All rights reserved."
+  }
+}

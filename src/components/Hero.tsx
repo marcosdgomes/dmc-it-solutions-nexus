@@ -1,9 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
+  const { t } = useTranslation();
   const heroRef = useRef<HTMLElement>(null);
   const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -82,14 +84,12 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Vamos <span className="gradient-text">Escalar</span><br />
-            Sua <span className="gradient-text">Infraestrutura</span>
+            {t('home.hero.title')}
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Especialistas em DevOps, automações, infraestrutura em nuvem, 
-            integração de sistemas e IA aplicada para impulsionar seu negócio.
+            {t('home.hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
@@ -99,7 +99,7 @@ const Hero = () => {
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8 py-4 text-lg font-medium rounded-xl hover-lift glow-effect"
               onClick={() => window.location.href = '#contact'}
             >
-              Automatize Seus Processos
+              {t('home.hero.ctaDemo')}
             </Button>
             <Button 
               size="lg" 
@@ -107,7 +107,7 @@ const Hero = () => {
               className="border-tech-primary text-tech-primary hover:bg-tech-primary hover:text-white px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300"
               onClick={() => window.location.href = '#services'}
             >
-              Conheça Nossos Serviços
+              {t('home.hero.ctaContact')}
             </Button>
           </div>
 
