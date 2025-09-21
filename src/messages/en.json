@@ -29,11 +29,47 @@
       "years": "Years of Experience",
       "projects": "Projects Delivered",
       "clients": "Satisfied Clients",
-      "certifications": "ISTQB Quality Certifications AWS, GCP and Azure Certifications"
+      "certifications": "ISTQB Quality Certifications AWS, GCP and Azure Certifications",
+      "values": {
+        "mission": {
+          "title": "Mission",
+          "description": "Transform businesses through innovative technology solutions, automating processes and optimizing infrastructures to generate exceptional results."
+        },
+        "vision": {
+          "title": "Vision",
+          "description": "Be a reference in digital transformation, connecting companies to the future through cutting-edge technologies and agile methodologies."
+        },
+        "values": {
+          "title": "Values",
+          "description": "Technical excellence, constant innovation, process transparency and total focus on customer satisfaction."
+        }
+      },
+      "expertise": {
+        "description": "With years of experience in the market, our team combines deep technical knowledge with strategic business vision. We deliver solutions that not only solve technical problems, but drive sustainable business growth.",
+        "items": [
+          "More than 5 years of experience in DevOps and Cloud",
+          "Specialists in automation and applied AI",
+          "Agile methodologies and continuous delivery",
+          "24/7 support and proactive monitoring",
+          "Multidisciplinary and highly qualified team"
+        ]
+      }
     },
     "services": {
-      "title": "Our Services",
-      "subtitle": "We offer complete technology solutions to drive your business growth with innovation and efficiency.",
+      "title": "What We Do",
+      "subtitle": "We offer complete technology solutions to accelerate your digital transformation and optimize your business processes.",
+      "devopsOnDemand": {
+        "title": "DevOps on Demand",
+        "description": "Specialized consulting and implementation of DevOps practices to accelerate your deployments and improve software quality."
+      },
+      "aiAutomation": {
+        "title": "AI Automations",
+        "description": "Implementation of intelligent solutions using N8N, OpenAI and AI agents to automate complex processes."
+      },
+      "support247": {
+        "title": "24/7 Support",
+        "description": "Continuous monitoring, proactive maintenance and specialized technical support to ensure maximum availability."
+      },
       "additional": {
         "title": "Specialized Services",
         "devops": {
@@ -48,7 +84,41 @@
           "title": "24/7 Support",
           "description": "Continuous monitoring and specialized technical support to ensure your systems' availability."
         }
-      }
+      },
+      "list": [
+        {
+          "title": "Cloud Migration",
+          "description": "Take a true cloud journey with our migration services, minimizing downtime and ensuring efficiency."
+        },
+        {
+          "title": "Cloud Consulting",
+          "description": "Regardless of your stage in the cloud journey, we offer the best consulting service providing complete and personalized support."
+        },
+        {
+          "title": "Cloud Optimization",
+          "description": "Optimize your cloud infrastructure to operate efficiently and economically, with performance analysis and cost management."
+        },
+        {
+          "title": "Cloud Management",
+          "description": "Let DMC take care of your cloud environment, with continuous monitoring, proactive maintenance and technical support for maximum efficiency."
+        },
+        {
+          "title": "Data/GenAI",
+          "description": "Transform data into actionable insights and leverage GenAI to drive innovation and decision making."
+        },
+        {
+          "title": "Cloud Modernization",
+          "description": "Modernize your infrastructure with the best practices and latest technologies in the market."
+        },
+        {
+          "title": "Cybersecurity",
+          "description": "Protect your digital environment with robust security solutions and continuous monitoring."
+        },
+        {
+          "title": "Outsourcing",
+          "description": "Outsource your IT operations with our specialized team and focus on your company's core business."
+        }
+      ]
     },
     "techStack": {
       "title": "Our Technology Stack",
@@ -136,7 +206,18 @@
         "location": "Location",
         "whatsapp": "WhatsApp",
         "fastResponse": "Fast Response"
-      }
+      },
+      "whatsapp": {
+        "title": "Prefer to chat via WhatsApp?",
+        "description": "Talk directly with us and get your questions answered in real time.",
+        "button": "Open WhatsApp"
+      },
+      "response": {
+        "title": "⚡ Fast Response",
+        "description": "We respond to all messages within 2 hours during business hours"
+      },
+      "otherMethods": "Other contact methods",
+      "sendMessage": "Send your message"
     }
   },
   "footer": {

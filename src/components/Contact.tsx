@@ -63,7 +63,7 @@ const Contact = () => {
           <div className="animate-fade-in">
             <div className="tech-card glow-effect">
               <h3 className="text-2xl font-bold text-white mb-6">
-                Envie sua mensagem
+                {t('home.contact.sendMessage')}
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -143,7 +143,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <h3 className="text-2xl font-bold text-white mb-8">
-              Outras formas de contato
+              {t('home.contact.otherMethods')}
             </h3>
 
             <div className="space-y-6 mb-8">
@@ -170,16 +170,16 @@ const Contact = () => {
             <div className="tech-card glow-effect bg-gradient-to-r from-green-600 to-green-500">
               <div className="text-center">
                 <h4 className="text-xl font-bold text-white mb-3">
-                  Prefere conversar via WhatsApp?
+                  {t('home.contact.whatsapp.title')}
                 </h4>
                 <p className="text-green-100 mb-4">
-                  Fale diretamente conosco e tire suas dúvidas em tempo real.
+                  {t('home.contact.whatsapp.description')}
                 </p>
                 <Button 
                   className="bg-white text-green-600 hover:bg-gray-100 font-medium"
                   onClick={() => window.open(`https://wa.me/${COMPANY_INFO.whatsapp}`, '_blank')}
                 >
-                  Abrir WhatsApp
+                  {t('home.contact.whatsapp.button')}
                 </Button>
               </div>
             </div>
@@ -187,9 +187,9 @@ const Contact = () => {
             {/* Response Time */}
             <div className="mt-8 text-center">
               <div className="tech-card">
-                <div className="text-tech-primary font-bold text-lg mb-2">⚡ Resposta Rápida</div>
+                <div className="text-tech-primary font-bold text-lg mb-2">{t('home.contact.response.title')}</div>
                 <div className="text-gray-300 text-sm">
-                  Respondemos todas as mensagens em até 2 horas durante horário comercial
+                  {t('home.contact.response.description')}
                 </div>
               </div>
             </div>

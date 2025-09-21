@@ -8,6 +8,11 @@ import { Cloud, Settings, Zap, Shield, Brain, RefreshCw, Lock, Users } from 'luc
 const Services = () => {
   const { t } = useTranslation();
   
+  const services = t('home.services.list', { returnObjects: true }) as Array<{
+    title: string;
+    description: string;
+  }>;
+  
   const getIcon = (iconName: string) => {
     const icons = {
       cloud: <Cloud className="w-8 h-8" />,
@@ -22,6 +27,8 @@ const Services = () => {
     return icons[iconName as keyof typeof icons] || <Settings className="w-8 h-8" />;
   };
 
+  const iconNames = ['cloud', 'consulting', 'optimization', 'management', 'ai', 'modernization', 'security', 'outsourcing'];
+
   return (
     <section id="services" className="py-20 bg-tech-dark">
       <div className="container mx-auto px-4">
@@ -29,7 +36,7 @@ const Services = () => {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             {t('home.services.title').split(' ').map((word, index, array) => 
-              word === 'Fazemos' ? (
+              word === 'Fazemos' || word === 'Do' ? (
                 <span key={index} className="gradient-text">{word}</span>
               ) : (
                 word + (index < array.length - 1 ? ' ' : '')
@@ -43,7 +50,7 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {SERVICES.map((service, index) => (
+          {services.map((service, index) => (
             <div 
               key={index}
               className="tech-card hover-lift group animate-fade-in"
@@ -51,7 +58,7 @@ const Services = () => {
             >
               {/* Icon */}
               <div className="text-tech-primary mb-4 group-hover:scale-110 transition-transform duration-300">
-                {getIcon(service.icon)}
+                {getIcon(iconNames[index])}
               </div>
 
               {/* Content */}

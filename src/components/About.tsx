@@ -9,28 +9,24 @@ const About = () => {
   const values = [
     {
       icon: <Target className="w-8 h-8 text-tech-primary" />,
-      title: "Missão",
-      description: "Transformar negócios através de soluções tecnológicas inovadoras, automatizando processos e otimizando infraestruturas para gerar resultados excepcionais."
+      title: t('home.about.values.mission.title'),
+      description: t('home.about.values.mission.description')
     },
     {
       icon: <Eye className="w-8 h-8 text-tech-primary" />,
-      title: "Visão",
-      description: "Ser referência em transformação digital, conectando empresas ao futuro através de tecnologias de ponta e metodologias ágeis."
+      title: t('home.about.values.vision.title'),
+      description: t('home.about.values.vision.description')
     },
     {
       icon: <Zap className="w-8 h-8 text-tech-primary" />,
-      title: "Valores",
-      description: "Excelência técnica, inovação constante, transparência nos processos e foco total na satisfação do cliente."
+      title: t('home.about.values.values.title'),
+      description: t('home.about.values.values.description')
     }
   ];
 
   const expertise = [
-    "Mais de 5 anos de experiência em DevOps e Cloud",
-    t('home.about.certifications'),
-    "Especialistas em automação e IA aplicada",
-    "Metodologias ágeis e entrega contínua",
-    "Suporte 24/7 e monitoramento proativo",
-    "Equipe multidisciplinar e altamente qualificada"
+    ...t('home.about.expertise.items', { returnObjects: true }) as string[],
+    t('home.about.certifications')
   ];
 
   return (
@@ -70,10 +66,7 @@ const About = () => {
               {t('home.about.subtitle')}
             </h3>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Com anos de experiência no mercado, nossa equipe combina conhecimento 
-              técnico profundo com visão estratégica de negócios. Entregamos soluções 
-              que não apenas resolvem problemas técnicos, mas impulsionam o crescimento 
-              sustentável das empresas.
+              {t('home.about.expertise.description')}
             </p>
             
             <div className="space-y-4">

@@ -29,7 +29,31 @@
       "years": "Anos de Experiência",
       "projects": "Projetos Entregues",
       "clients": "Clientes Satisfeitos",
-      "certifications": "Certificações de Qualidade ISTQB Certificações em AWS, GCP e Azure"
+      "certifications": "Certificações de Qualidade ISTQB Certificações em AWS, GCP e Azure",
+      "values": {
+        "mission": {
+          "title": "Missão",
+          "description": "Transformar negócios através de soluções tecnológicas inovadoras, automatizando processos e otimizando infraestruturas para gerar resultados excepcionais."
+        },
+        "vision": {
+          "title": "Visão",
+          "description": "Ser referência em transformação digital, conectando empresas ao futuro através de tecnologias de ponta e metodologias ágeis."
+        },
+        "values": {
+          "title": "Valores",
+          "description": "Excelência técnica, inovação constante, transparência nos processos e foco total na satisfação do cliente."
+        }
+      },
+      "expertise": {
+        "description": "Com anos de experiência no mercado, nossa equipe combina conhecimento técnico profundo com visão estratégica de negócios. Entregamos soluções que não apenas resolvem problemas técnicos, mas impulsionam o crescimento sustentável das empresas.",
+        "items": [
+          "Mais de 5 anos de experiência em DevOps e Cloud",
+          "Especialistas em automação e IA aplicada",
+          "Metodologias ágeis e entrega contínua",
+          "Suporte 24/7 e monitoramento proativo",
+          "Equipe multidisciplinar e altamente qualificada"
+        ]
+      }
     },
     "services": {
       "title": "O Que Fazemos",
@@ -60,7 +84,41 @@
           "title": "Suporte 24/7",
           "description": "Monitoramento contínuo e suporte técnico especializado para garantir a disponibilidade dos seus sistemas."
         }
-      }
+      },
+      "list": [
+        {
+          "title": "Cloud Migration",
+          "description": "Realize uma verdadeira jornada para cloud com nossos serviços de migração, minimizando o tempo de inatividade e garantindo eficiência."
+        },
+        {
+          "title": "Cloud Consulting",
+          "description": "Independentemente de seu estágio na jornada para cloud, oferecemos o melhor serviço de consultoria prestando um suporte completo e personalizado."
+        },
+        {
+          "title": "Cloud Optimization",
+          "description": "Otimize sua infraestrutura na nuvem para operar de forma eficiente e econômica, com análise de desempenho e gestão de custos."
+        },
+        {
+          "title": "Gerenciamento de Cloud",
+          "description": "Deixe a DMC cuidar de seu ambiente de cloud, com monitoramento contínuo, manutenção proativa e suporte técnico para máxima eficiência."
+        },
+        {
+          "title": "Data/GenAI",
+          "description": "Transforme dados em insights acionáveis e aproveite a GenAI para impulsionar a inovação e a tomada de decisões."
+        },
+        {
+          "title": "Cloud Modernization",
+          "description": "Modernize sua infraestrutura com as melhores práticas e tecnologias mais recentes do mercado."
+        },
+        {
+          "title": "Cybersecurity",
+          "description": "Proteja seu ambiente digital com soluções de segurança robustas e monitoramento contínuo."
+        },
+        {
+          "title": "Outsourcing",
+          "description": "Terceirize suas operações de TI com nossa equipe especializada e foque no core business da sua empresa."
+        }
+      ]
     },
     "products": {
       "title": "Nossos Produtos",
@@ -144,7 +202,18 @@
         "location": "Localização",
         "whatsapp": "WhatsApp",
         "fastResponse": "Resposta Rápida"
-      }
+      },
+      "whatsapp": {
+        "title": "Prefere conversar via WhatsApp?",
+        "description": "Fale diretamente conosco e tire suas dúvidas em tempo real.",
+        "button": "Abrir WhatsApp"
+      },
+      "response": {
+        "title": "⚡ Resposta Rápida",
+        "description": "Respondemos todas as mensagens em até 2 horas durante horário comercial"
+      },
+      "otherMethods": "Outras formas de contato",
+      "sendMessage": "Envie sua mensagem"
     }
   },
   "footer": {
