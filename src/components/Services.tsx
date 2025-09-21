@@ -1,10 +1,13 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { SERVICES } from '@/lib/constants';
 import { Cloud, Settings, Zap, Shield, Brain, RefreshCw, Lock, Users } from 'lucide-react';
 
 const Services = () => {
+  const { t } = useTranslation();
+  
   const getIcon = (iconName: string) => {
     const icons = {
       cloud: <Cloud className="w-8 h-8" />,
@@ -25,11 +28,16 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            O Que <span className="gradient-text">Fazemos</span>
+            {t('home.services.title').split(' ').map((word, index, array) => 
+              word === 'Fazemos' ? (
+                <span key={index} className="gradient-text">{word}</span>
+              ) : (
+                word + (index < array.length - 1 ? ' ' : '')
+              )
+            )}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Oferecemos soluções completas em tecnologia para acelerar sua transformação digital 
-            e otimizar seus processos de negócio.
+            {t('home.services.subtitle')}
           </p>
         </div>
 
@@ -63,10 +71,9 @@ const Services = () => {
             <div className="text-tech-primary mb-4">
               <Zap className="w-12 h-12 mx-auto" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">DevOps sob Demanda</h3>
+            <h3 className="text-xl font-bold text-white mb-3">{t('home.services.devopsOnDemand.title')}</h3>
             <p className="text-gray-300 text-sm">
-              Consultoria especializada e implementação de práticas DevOps 
-              para acelerar seus deployments e melhorar a qualidade do software.
+              {t('home.services.devopsOnDemand.description')}
             </p>
           </div>
 
@@ -74,10 +81,9 @@ const Services = () => {
             <div className="text-tech-primary mb-4">
               <Brain className="w-12 h-12 mx-auto" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Automações com IA</h3>
+            <h3 className="text-xl font-bold text-white mb-3">{t('home.services.aiAutomation.title')}</h3>
             <p className="text-gray-300 text-sm">
-              Implementação de soluções inteligentes usando N8N, OpenAI e 
-              agentes de IA para automatizar processos complexos.
+              {t('home.services.aiAutomation.description')}
             </p>
           </div>
 
@@ -85,10 +91,9 @@ const Services = () => {
             <div className="text-tech-primary mb-4">
               <Shield className="w-12 h-12 mx-auto" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Suporte 24/7</h3>
+            <h3 className="text-xl font-bold text-white mb-3">{t('home.services.support247.title')}</h3>
             <p className="text-gray-300 text-sm">
-              Monitoramento contínuo, manutenção proativa e suporte técnico 
-              especializado para garantir máxima disponibilidade.
+              {t('home.services.support247.description')}
             </p>
           </div>
         </div>

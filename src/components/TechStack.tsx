@@ -1,19 +1,27 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { TECH_STACK } from '@/lib/constants';
 
 const TechStack = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-20 bg-tech-gray/30">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Nossa <span className="gradient-text">Stack</span> Tecnológica
+            {t('home.techStack.title').split(' ').map((word, index, array) => 
+              index === array.length - 2 ? (
+                <span key={index} className="gradient-text">{word} </span>
+              ) : (
+                word + (index < array.length - 1 ? ' ' : '')
+              )
+            )}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Utilizamos as tecnologias mais modernas e confiáveis do mercado para 
-            entregar soluções robustas e escaláveis.
+            {t('home.techStack.subtitle')}
           </p>
         </div>
 

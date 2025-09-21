@@ -56,19 +56,68 @@
     },
     "products": {
       "title": "Our Products",
-      "subtitle": "Ready-made and customizable solutions to accelerate your company's digital transformation.",
+      "subtitle": "We develop proprietary solutions that revolutionize how companies manage their infrastructure and development processes.",
+      "dmcAutoDeploy": {
+        "title": "DMC AutoDeploy",
+        "description": "Automated deployment platform that accelerates your deliveries by up to 90% with optimized CI/CD pipelines.",
+        "features": ["Automatic deployment", "Intelligent rollback", "Integrated monitoring"]
+      },
+      "dmcAiAssistant": {
+        "title": "DMC AI Assistant",
+        "description": "AI assistant specialized in DevOps that optimizes processes and automates complex tasks.",
+        "features": ["Conversational AI", "Intelligent automation", "Continuous learning"]
+      },
+      "dmcCloudManager": {
+        "title": "DMC Cloud Manager",
+        "description": "Manage multiple cloud providers in a single interface with automatic cost optimization.",
+        "features": ["Multi-cloud", "Cost optimization", "Centralized management"]
+      },
+      "badges": {
+        "popular": "Popular",
+        "ai": "AI",
+        "comingSoon": "Coming Soon"
+      },
+      "status": {
+        "available": "Available",
+        "beta": "Beta",
+        "inDevelopment": "In Development"
+      },
+      "buttons": {
+        "learnMore": "Learn More",
+        "comingSoon": "Coming Soon"
+      },
       "mvp": {
-        "title": "Need a Custom MVP?",
-        "description": "We develop tailor-made MVPs to quickly validate your business idea.",
+        "title": "Need a custom MVP?",
+        "description": "We develop custom MVPs and APIs for your specific needs. From conception to deployment, we take care of the entire development process.",
         "cta": "Contact Us"
       }
     },
     "cases": {
       "title": "Success Stories",
-      "subtitle": "Learn about some of the projects we've developed and the results achieved for our clients.",
+      "subtitle": "See how we transform technical challenges into innovative solutions that generate real results for our clients.",
+      "case1": {
+        "title": "Newspaper Group with 25-30M monthly visits",
+        "company": "MediaGroup",
+        "description": "Complete cloud migration and serverless architecture implementation that optimized content delivery and reduced operational costs by 60%.",
+        "results": {
+          "costReduction": "Cost Reduction",
+          "performanceImprovement": "Performance Improvement",
+          "uptime": "Uptime Achieved"
+        }
+      },
+      "case2": {
+        "title": "Private Cloud Consulting",
+        "company": "TechCorp",
+        "description": "Implementation of bare metal infrastructure with private cloud, ensuring maximum performance and total data control.",
+        "results": {
+          "performanceImprovement": "Performance Improvement",
+          "systemAvailability": "System Availability",
+          "dataControl": "Data Control"
+        }
+      },
       "cta": {
-        "title": "Ready to Start Your Project?",
-        "subtitle": "Contact us and let's discuss how we can help your company achieve its technological goals.",
+        "title": "Want to be our next success story?",
+        "subtitle": "Tell us about your challenge and we'll create a personalized solution that exceeds your expectations.",
         "button": "Start Project"
       }
     },

@@ -1,49 +1,39 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, TrendingUp, Clock, DollarSign } from 'lucide-react';
 
 const Cases = () => {
+  const { t } = useTranslation();
+  
   const cases = [
     {
-      title: "Grupo de Jornal com 25-30M de acessos mensais",
-      company: "MediaGroup",
-      description: "Migração completa para cloud e implementação de arquitetura serverless que otimizou a entrega de conteúdo e reduziu custos operacionais em 60%.",
+      title: t('home.cases.case1.title'),
+      company: t('home.cases.case1.company'),
+      description: t('home.cases.case1.description'),
       results: [
-        { metric: "60%", label: "Redução de Custos" },
-        { metric: "200%", label: "Melhoria de Performance" },
-        { metric: "99.99%", label: "Uptime Alcançado" }
+        { metric: "60%", label: t('home.cases.case1.results.costReduction') },
+        { metric: "200%", label: t('home.cases.case1.results.performanceImprovement') },
+        { metric: "99.99%", label: t('home.cases.case1.results.uptime') }
       ],
       tags: ["AWS", "CDN", "CI/CD", "Monitoring"],
       image: "photo-1460925895917-afdab827c52f",
       color: "from-blue-500 to-purple-600"
     },
     {
-      title: "Consultoria em Nuvem Privada",
-      company: "TechCorp",
-      description: "Implementação de infraestrutura bare metal com nuvem privada, garantindo máxima performance e controle total sobre os dados.",
+      title: t('home.cases.case2.title'),
+      company: t('home.cases.case2.company'),
+      description: t('home.cases.case2.description'),
       results: [
-        { metric: "75%", label: "Melhoria de Performance" },
-        { metric: "99.9%", label: "Disponibilidade do Sistema" },
-        { metric: "100%", label: "Controle de Dados" }
+        { metric: "75%", label: t('home.cases.case2.results.performanceImprovement') },
+        { metric: "99.9%", label: t('home.cases.case2.results.systemAvailability') },
+        { metric: "100%", label: t('home.cases.case2.results.dataControl') }
       ],
       tags: ["Bare Metal", "Private Cloud", "Kubernetes", "Security"],
       image: "photo-1551288049-bebda4e38f71",
       color: "from-green-500 to-teal-600"
     }
-    // {
-    //   title: "Startup de IA Generativa",
-    //   company: "AInovate",
-    //   description: "Criação de infraestrutura escalável para processamento de modelos de IA com auto-scaling e otimização de custos GPU.",
-    //   results: [
-    //     { metric: "80%", label: "Economia em GPU" },
-    //     { metric: "5x", label: "Velocidade de Processamento" },
-    //     { metric: "24/7", label: "Disponibilidade" }
-    //   ],
-    //   tags: ["GCP", "Terraform", "AI/ML", "Auto-scaling"],
-    //   image: "photo-1485827404703-89b55fcc595e",
-    //   color: "from-purple-500 to-pink-600"
-    // }
   ];
 
   return (
@@ -52,11 +42,16 @@ const Cases = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Cases de <span className="gradient-text">Sucesso</span>
+            {t('home.cases.title').split(' ').map((word, index, array) => 
+              word === 'Sucesso' || word === 'Stories' ? (
+                <span key={index} className="gradient-text">{word}</span>
+              ) : (
+                word + (index < array.length - 1 ? ' ' : '')
+              )
+            )}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Veja como transformamos desafios técnicos em soluções inovadoras 
-            que geram resultados reais para nossos clientes.
+            {t('home.cases.subtitle')}
           </p>
         </div>
 
@@ -130,17 +125,22 @@ const Cases = () => {
         <div className="mt-16 text-center">
           <div className="tech-card glow-effect max-w-2xl mx-auto animate-fade-in">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Quer ser nosso próximo <span className="gradient-text">case de sucesso</span>?
+              {t('home.cases.cta.title').split(' ').map((word, index) => 
+                word === 'sucesso' || word === 'story' ? (
+                  <span key={index} className="gradient-text">{word}</span>
+                ) : (
+                  word + ' '
+                )
+              )}
             </h3>
             <p className="text-gray-300 mb-6">
-              Conte-nos sobre seu desafio e vamos criar uma solução personalizada 
-              que supere suas expectativas.
+              {t('home.cases.cta.subtitle')}
             </p>
             <Button 
               size="lg"
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8"
             >
-              Iniciar Projeto
+              {t('home.cases.cta.button')}
             </Button>
           </div>
         </div>

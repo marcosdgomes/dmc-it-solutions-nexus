@@ -1,35 +1,38 @@
 
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Zap, Globe, Database, Cpu } from 'lucide-react';
 
 const Products = () => {
+  const { t } = useTranslation();
+  
   const products = [
     {
-      title: "DMC AutoDeploy",
-      description: "Plataforma de deploy automatizado que acelera suas entregas em até 90% com pipelines CI/CD otimizados.",
+      title: t('home.products.dmcAutoDeploy.title'),
+      description: t('home.products.dmcAutoDeploy.description'),
       icon: <Zap className="w-8 h-8" />,
-      features: ["Deploy automático", "Rollback inteligente", "Monitoramento integrado"],
-      status: "Em Desenvolvimento",
-      badge: "Popular",
+      features: t('home.products.dmcAutoDeploy.features', { returnObjects: true }) as string[],
+      status: t('home.products.status.inDevelopment'),
+      badge: t('home.products.badges.popular'),
       color: "from-tech-primary to-blue-400"
     },
     {
-      title: "DMC AI Assistant",
-      description: "Assistente de IA especializado em DevOps que otimiza processos e automatiza tarefas complexas.",
+      title: t('home.products.dmcAiAssistant.title'),
+      description: t('home.products.dmcAiAssistant.description'),
       icon: <Cpu className="w-8 h-8" />,
-      features: ["IA conversacional", "Automação inteligente", "Aprendizado contínuo"],
-      status: "Em Desenvolvimento",
-      badge: "IA",
+      features: t('home.products.dmcAiAssistant.features', { returnObjects: true }) as string[],
+      status: t('home.products.status.inDevelopment'),
+      badge: t('home.products.badges.ai'),
       color: "from-purple-500 to-pink-400"
     },
     {
-      title: "DMC Cloud Manager",
-      description: "Gerencie múltiplos provedores de cloud em uma única interface com otimização de custos automática.",
+      title: t('home.products.dmcCloudManager.title'),
+      description: t('home.products.dmcCloudManager.description'),
       icon: <Globe className="w-8 h-8" />,
-      features: ["Multi-cloud", "Otimização de custos", "Gestão centralizada"],
-      status: "Em Desenvolvimento",
-      badge: "Em Breve",
+      features: t('home.products.dmcCloudManager.features', { returnObjects: true }) as string[],
+      status: t('home.products.status.inDevelopment'),
+      badge: t('home.products.badges.comingSoon'),
       color: "from-orange-500 to-red-400"
     }
   ];
@@ -40,11 +43,16 @@ const Products = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Nossos <span className="gradient-text">Produtos</span>
+            {t('home.products.title').split(' ').map((word, index, array) => 
+              word === 'Produtos' || word === 'Products' ? (
+                <span key={index} className="gradient-text">{word}</span>
+              ) : (
+                word + (index < array.length - 1 ? ' ' : '')
+              )
+            )}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Desenvolvemos soluções proprietárias que revolucionam a forma como 
-            empresas gerenciam sua infraestrutura e processos de desenvolvimento.
+            {t('home.products.subtitle')}
           </p>
         </div>
 
@@ -88,8 +96,8 @@ const Products = () => {
               {/* Status and CTA */}
               <div className="flex items-center justify-between">
                 <span className={`text-sm font-medium ${
-                  product.status === 'Disponível' ? 'text-green-400' :
-                  product.status === 'Beta' ? 'text-yellow-400' :
+                  product.status === t('home.products.status.available') ? 'text-green-400' :
+                  product.status === t('home.products.status.beta') ? 'text-yellow-400' :
                   'text-orange-400'
                 }`}>
                   {product.status}
@@ -98,9 +106,9 @@ const Products = () => {
                 <Button 
                   size="sm"
                   className={`bg-gradient-to-r ${product.color} hover:opacity-90 text-white`}
-                  disabled={product.status === 'Em Desenvolvimento'}
+                  disabled={product.status === t('home.products.status.inDevelopment')}
                 >
-                  {product.status === 'Em Desenvolvimento' ? 'Em Breve' : 'Saiba Mais'}
+                  {product.status === t('home.products.status.inDevelopment') ? t('home.products.buttons.comingSoon') : t('home.products.buttons.learnMore')}
                   <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
               </div>
@@ -111,11 +119,16 @@ const Products = () => {
         {/* MVP Section */}
         <div className="tech-card glow-effect text-center animate-fade-in">
           <h3 className="text-3xl font-bold text-white mb-6">
-            Precisa de um <span className="gradient-text">MVP</span> customizado?
+            {t('home.products.mvp.title').split(' ').map((word, index) => 
+              word === 'MVP' ? (
+                <span key={index} className="gradient-text">{word}</span>
+              ) : (
+                word + ' '
+              )
+            )}
           </h3>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Desenvolvemos MVPs e APIs sob medida para sua necessidade específica. 
-            Desde a concepção até o deploy, cuidamos de todo o processo de desenvolvimento.
+            {t('home.products.mvp.description')}
           </p>
           <div className="flex justify-center">
             <Button 
@@ -123,7 +136,7 @@ const Products = () => {
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8"
               onClick={() => window.location.href = '#contact'}
             >
-              Fale Conosco
+              {t('home.products.mvp.cta')}
             </Button>
           </div>
         </div>

@@ -32,8 +32,20 @@
       "certifications": "Certificações de Qualidade ISTQB Certificações em AWS, GCP e Azure"
     },
     "services": {
-      "title": "Nossos Serviços",
-      "subtitle": "Oferecemos soluções completas em tecnologia para impulsionar o crescimento do seu negócio com inovação e eficiência.",
+      "title": "O Que Fazemos",
+      "subtitle": "Oferecemos soluções completas em tecnologia para acelerar sua transformação digital e otimizar seus processos de negócio.",
+      "devopsOnDemand": {
+        "title": "DevOps sob Demanda",
+        "description": "Consultoria especializada e implementação de práticas DevOps para acelerar seus deployments e melhorar a qualidade do software."
+      },
+      "aiAutomation": {
+        "title": "Automações com IA",
+        "description": "Implementação de soluções inteligentes usando N8N, OpenAI e agentes de IA para automatizar processos complexos."
+      },
+      "support247": {
+        "title": "Suporte 24/7",
+        "description": "Monitoramento contínuo, manutenção proativa e suporte técnico especializado para garantir máxima disponibilidade."
+      },
       "additional": {
         "title": "Serviços Especializados",
         "devops": {
@@ -50,25 +62,70 @@
         }
       }
     },
-    "techStack": {
-      "title": "Nossa Stack Tecnológica",
-      "subtitle": "Utilizamos as tecnologias mais modernas e confiáveis do mercado para entregar soluções robustas e escaláveis."
-    },
     "products": {
       "title": "Nossos Produtos",
-      "subtitle": "Soluções prontas e personalizáveis para acelerar a transformação digital da sua empresa.",
+      "subtitle": "Desenvolvemos soluções proprietárias que revolucionam a forma como empresas gerenciam sua infraestrutura e processos de desenvolvimento.",
+      "dmcAutoDeploy": {
+        "title": "DMC AutoDeploy",
+        "description": "Plataforma de deploy automatizado que acelera suas entregas em até 90% com pipelines CI/CD otimizados.",
+        "features": ["Deploy automático", "Rollback inteligente", "Monitoramento integrado"]
+      },
+      "dmcAiAssistant": {
+        "title": "DMC AI Assistant",
+        "description": "Assistente de IA especializado em DevOps que otimiza processos e automatiza tarefas complexas.",
+        "features": ["IA conversacional", "Automação inteligente", "Aprendizado contínuo"]
+      },
+      "dmcCloudManager": {
+        "title": "DMC Cloud Manager",
+        "description": "Gerencie múltiplos provedores de cloud em uma única interface com otimização de custos automática.",
+        "features": ["Multi-cloud", "Otimização de custos", "Gestão centralizada"]
+      },
+      "badges": {
+        "popular": "Popular",
+        "ai": "IA",
+        "comingSoon": "Em Breve"
+      },
+      "status": {
+        "available": "Disponível",
+        "beta": "Beta",
+        "inDevelopment": "Em Desenvolvimento"
+      },
+      "buttons": {
+        "learnMore": "Saiba Mais",
+        "comingSoon": "Em Breve"
+      },
       "mvp": {
-        "title": "Precisa de um MVP Personalizado?",
-        "description": "Desenvolvemos MVPs sob medida para validar sua ideia de negócio rapidamente.",
+        "title": "Precisa de um MVP customizado?",
+        "description": "Desenvolvemos MVPs e APIs sob medida para sua necessidade específica. Desde a concepção até o deploy, cuidamos de todo o processo de desenvolvimento.",
         "cta": "Fale Conosco"
       }
     },
     "cases": {
       "title": "Cases de Sucesso",
-      "subtitle": "Conheça alguns dos projetos que desenvolvemos e os resultados alcançados para nossos clientes.",
+      "subtitle": "Veja como transformamos desafios técnicos em soluções inovadoras que geram resultados reais para nossos clientes.",
+      "case1": {
+        "title": "Grupo de Jornal com 25-30M de acessos mensais",
+        "company": "MediaGroup",
+        "description": "Migração completa para cloud e implementação de arquitetura serverless que otimizou a entrega de conteúdo e reduziu custos operacionais em 60%.",
+        "results": {
+          "costReduction": "Redução de Custos",
+          "performanceImprovement": "Melhoria de Performance", 
+          "uptime": "Uptime Alcançado"
+        }
+      },
+      "case2": {
+        "title": "Consultoria em Nuvem Privada",
+        "company": "TechCorp",
+        "description": "Implementação de infraestrutura bare metal com nuvem privada, garantindo máxima performance e controle total sobre os dados.",
+        "results": {
+          "performanceImprovement": "Melhoria de Performance",
+          "systemAvailability": "Disponibilidade do Sistema",
+          "dataControl": "Controle de Dados"
+        }
+      },
       "cta": {
-        "title": "Pronto para Começar Seu Projeto?",
-        "subtitle": "Entre em contato conosco e vamos discutir como podemos ajudar sua empresa a alcançar seus objetivos tecnológicos.",
+        "title": "Quer ser nosso próximo case de sucesso?",
+        "subtitle": "Conte-nos sobre seu desafio e vamos criar uma solução personalizada que supere suas expectativas.",
         "button": "Iniciar Projeto"
       }
     },
