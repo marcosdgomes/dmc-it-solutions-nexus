@@ -20,7 +20,11 @@
       "title": "Innovative Technology Solutions for Your Business",
       "subtitle": "We transform ideas into digital reality with custom software development, IT consulting, and intelligent automation.",
       "ctaDemo": "Request Demo",
-      "ctaContact": "Contact Us"
+      "ctaContact": "Contact Us",
+      "stats": {
+        "projects": "Delivered Projects",
+        "support": "Technical Support"
+      }
     },
     "about": {
       "title": "About Us",
@@ -122,7 +126,17 @@
     },
     "techStack": {
       "title": "Our Technology Stack",
-      "subtitle": "We use the most modern and reliable technologies in the market to deliver robust and scalable solutions."
+      "subtitle": "We use the most modern and reliable technologies in the market to deliver robust and scalable solutions.",
+      "categories": {
+        "containerization": "Containerization & Orchestration",
+        "cloudProviders": "Cloud Providers",
+        "development": "Development",
+        "automation": "Automation & AI",
+        "monitoring": "Monitoring",
+        "cicd": "CI/CD",
+        "selfhosted": "Self-hosted Solutions",
+        "virtualization": "Virtualization"
+      }
     },
     "products": {
       "title": "Our Products",
@@ -216,6 +230,9 @@
         "title": "⚡ Fast Response",
         "description": "We respond to all messages within 2 hours during business hours"
       },
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Failed to send message. Please try again or contact us via WhatsApp.",
+      "sending": "Sending message...",
       "otherMethods": "Other contact methods",
       "sendMessage": "Send your message"
     }

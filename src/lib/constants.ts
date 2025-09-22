@@ -78,36 +78,36 @@ export const SERVICES = [
 
 export const TECH_STACK = [
   {
-    category: "Containerização & Orquestração",
+    categoryKey: "containerization",
     technologies: ["Docker", "Kubernetes", "NGINX", "Linux"]
   },
   {
-    category: "Cloud Providers",
+    categoryKey: "cloudProviders",
     technologies: ["AWS", "GCP", "DigitalOcean", "Hetzner"]
   },
   {
-    category: "Desenvolvimento",
+    categoryKey: "development",
     technologies: ["Node.js", "Python", "Bash", "GitHub Actions"]
   },
   {
-    category: "Automação & IA",
-    technologies: ["N8N", "OpenAI", "Agentes de IA", "Ansible"]
+    categoryKey: "automation",
+    technologies: ["N8N", "OpenAI", "AI Agents", "Ansible"]
   },
   {
-    category: "Monitoramento",
+    categoryKey: "monitoring",
     technologies: ["Grafana", "Prometheus", "Loki", "Signoz"]
   },
   {
-    category: "CI/CD",
+    categoryKey: "cicd",
     technologies: ["GitHub Actions", "GitLab CI/CD", "Terraform"]
   },
   {
-    category: "Self-hosted Solutions",
+    categoryKey: "selfhosted",
     technologies: ["Cloudstack", "Dokploy", "Coolify", "KVM"]
   },
   {
-    category: "Virtualização",
-    technologies: ["KVM", "Virtualização", "VMware Alternatives"]
+    categoryKey: "virtualization",
+    technologies: ["KVM", "Virtualization", "VMware Alternatives"]
   }
 ];
 

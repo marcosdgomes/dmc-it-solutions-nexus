@@ -97,7 +97,12 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8 py-4 text-lg font-medium rounded-xl hover-lift glow-effect"
-              onClick={() => window.location.href = '#contact'}
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               {t('home.hero.ctaDemo')}
             </Button>
@@ -115,11 +120,11 @@ const Hero = () => {
           <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-xl mx-auto">
             <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
               <div className="text-3xl font-bold text-tech-primary mb-2">20+</div>
-              <div className="text-gray-400 text-sm">Projetos Entregues</div>
+              <div className="text-gray-400 text-sm">{t('home.hero.stats.projects')}</div>
             </div>
             <div className="text-center animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
               <div className="text-3xl font-bold text-tech-primary mb-2">24/7</div>
-              <div className="text-gray-400 text-sm">Suporte Técnico</div>
+              <div className="text-gray-400 text-sm">{t('home.hero.stats.support')}</div>
             </div>
           </div>
         </div>

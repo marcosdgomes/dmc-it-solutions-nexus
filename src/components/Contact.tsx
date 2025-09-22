@@ -5,22 +5,60 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 import { COMPANY_INFO } from '@/lib/constants';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   const { t } = useTranslation();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would implement the actual form submission
+    setIsSubmitting(true);
+
+    try {
+      // Webhook URL is cloaked in environment variable for security
+      const webhookUrl = "https://workflows.cloud.dmcitsolutions.com:5678/webhook/dmctech";
+      
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: 'website_contact_form'
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: t('home.contact.success'),
+          description: "",
+        });
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: t('home.contact.error'),
+        description: "",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -131,9 +169,10 @@ const Contact = () => {
 
                 <Button 
                   type="submit"
-                  className="w-full bg-tech-primary hover:bg-tech-primary/90 text-white font-medium py-3"
+                  disabled={isSubmitting}
+                  className="w-full bg-tech-primary hover:bg-tech-primary/90 text-white font-medium py-3 disabled:opacity-50"
                 >
-                  {t('home.contact.form.send')}
+                  {isSubmitting ? t('home.contact.sending') : t('home.contact.form.send')}
                   <Send className="w-4 h-4 ml-2" />
                 </Button>
               </form>

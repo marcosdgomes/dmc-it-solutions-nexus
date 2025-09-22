@@ -139,6 +139,12 @@ const Cases = () => {
             <Button 
               size="lg"
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               {t('home.cases.cta.button')}
             </Button>

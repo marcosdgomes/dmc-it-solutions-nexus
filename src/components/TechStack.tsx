@@ -34,7 +34,7 @@ const TechStack = () => {
               style={{ animationDelay: `${categoryIndex * 0.1}s` }}
             >
               <h3 className="text-xl font-bold text-white mb-6 gradient-text">
-                {category.category}
+                {t(`home.techStack.categories.${category.categoryKey}`)}
               </h3>
               
               <div className="grid grid-cols-2 gap-3">

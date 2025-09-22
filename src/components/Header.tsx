@@ -45,7 +45,7 @@ const Header = () => {
             <img 
               src="/logo-white.png" 
               alt={companyInfo.name}
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 

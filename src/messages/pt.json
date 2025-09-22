@@ -20,7 +20,11 @@
       "title": "Soluções Tecnológicas Inovadoras para o Seu Negócio",
       "subtitle": "Transformamos ideias em realidade digital com desenvolvimento de software personalizado, consultoria em TI e automação inteligente.",
       "ctaDemo": "Solicitar Demonstração",
-      "ctaContact": "Fale Conosco"
+      "ctaContact": "Fale Conosco",
+      "stats": {
+        "projects": "Projetos Entregues",
+        "support": "Suporte Técnico"
+      }
     },
     "about": {
       "title": "Sobre Nós",
@@ -120,6 +124,20 @@
         }
       ]
     },
+    "techStack": {
+      "title": "Nossa Stack Tecnológica",
+      "subtitle": "Utilizamos as tecnologias mais modernas e confiáveis do mercado para entregar soluções robustas e escaláveis.",
+      "categories": {
+        "containerization": "Containerização & Orquestração",
+        "cloudProviders": "Provedores de Cloud",
+        "development": "Desenvolvimento",
+        "automation": "Automação & IA",
+        "monitoring": "Monitoramento",
+        "cicd": "CI/CD",
+        "selfhosted": "Soluções Self-hosted",
+        "virtualization": "Virtualização"
+      }
+    },
     "products": {
       "title": "Nossos Produtos",
       "subtitle": "Desenvolvemos soluções proprietárias que revolucionam a forma como empresas gerenciam sua infraestrutura e processos de desenvolvimento.",
@@ -212,6 +230,9 @@
         "title": "⚡ Resposta Rápida",
         "description": "Respondemos todas as mensagens em até 2 horas durante horário comercial"
       },
+      "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+      "error": "Falha ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.",
+      "sending": "Enviando mensagem...",
       "otherMethods": "Outras formas de contato",
       "sendMessage": "Envie sua mensagem"
     }
