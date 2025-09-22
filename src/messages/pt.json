@@ -230,8 +230,10 @@
         "title": "⚡ Resposta Rápida",
         "description": "Respondemos todas as mensagens em até 2 horas durante horário comercial"
       },
-      "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
-      "error": "Falha ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.",
+      "success": "Mensagem enviada com sucesso!",
+      "successDescription": "Entraremos em contato em breve.",
+      "error": "Falha ao enviar mensagem.",
+      "errorDescription": "Tente novamente ou entre em contato via WhatsApp.",
       "sending": "Enviando mensagem...",
       "otherMethods": "Outras formas de contato",
       "sendMessage": "Envie sua mensagem"

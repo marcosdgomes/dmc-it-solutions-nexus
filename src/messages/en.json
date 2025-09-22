@@ -230,8 +230,10 @@
         "title": "⚡ Fast Response",
         "description": "We respond to all messages within 2 hours during business hours"
       },
-      "success": "Message sent successfully! We'll get back to you soon.",
-      "error": "Failed to send message. Please try again or contact us via WhatsApp.",
+      "success": "Message sent successfully!",
+      "successDescription": "We'll get back to you soon.",
+      "error": "Failed to send message.",
+      "errorDescription": "Please try again or contact us via WhatsApp.",
       "sending": "Sending message...",
       "otherMethods": "Other contact methods",
       "sendMessage": "Send your message"

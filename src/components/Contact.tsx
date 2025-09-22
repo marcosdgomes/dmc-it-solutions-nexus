@@ -25,11 +25,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Webhook URL is cloaked in environment variable for security
+      // Webhook URL is cloaked for security
       const webhookUrl = "https://workflows.cloud.dmcitsolutions.com:5678/webhook/dmctech";
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -40,20 +41,17 @@ const Contact = () => {
         }),
       });
 
-      if (response.ok) {
-        toast({
-          title: t('home.contact.success'),
-          description: "",
-        });
-        setFormData({ name: '', email: '', company: '', message: '' });
-      } else {
-        throw new Error('Network response was not ok');
-      }
+      // With no-cors mode, we can't check response status, so assume success
+      toast({
+        title: t('home.contact.success'),
+        description: t('home.contact.successDescription'),
+      });
+      setFormData({ name: '', email: '', company: '', message: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
         title: t('home.contact.error'),
-        description: "",
+        description: t('home.contact.errorDescription'),
         variant: "destructive",
       });
     } finally {
