@@ -14,7 +14,7 @@ const Cases = () => {
       description: t('home.cases.case1.description'),
       results: [
         { metric: "60%", label: t('home.cases.case1.results.costReduction') },
-        { metric: "200%", label: t('home.cases.case1.results.performanceImprovement') },
+        { metric: "50%", label: t('home.cases.case1.results.performanceImprovement') },
         { metric: "99.99%", label: t('home.cases.case1.results.uptime') }
       ],
       tags: ["AWS", "CDN", "CI/CD", "Monitoring"],
@@ -26,7 +26,7 @@ const Cases = () => {
       company: t('home.cases.case2.company'),
       description: t('home.cases.case2.description'),
       results: [
-        { metric: "75%", label: t('home.cases.case2.results.performanceImprovement') },
+        { metric: "+60%", label: t('home.cases.case2.results.costSavings') },
         { metric: "99.9%", label: t('home.cases.case2.results.systemAvailability') },
         { metric: "100%", label: t('home.cases.case2.results.dataControl') }
       ],

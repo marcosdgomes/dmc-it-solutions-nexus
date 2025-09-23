@@ -33,7 +33,7 @@
       "years": "Years of Experience",
       "projects": "Projects Delivered",
       "clients": "Satisfied Clients",
-      "certifications": "ISTQB Quality Certifications AWS, GCP and Azure Certifications",
+      "certifications": "ISTQB Quality Certifications",
       "values": {
         "mission": {
           "title": "Mission",
@@ -194,7 +194,7 @@
         "company": "TechCorp",
         "description": "Implementation of bare metal infrastructure with private cloud, ensuring maximum performance and total data control.",
         "results": {
-          "performanceImprovement": "Performance Improvement",
+          "costSavings": "Cost Savings",
           "systemAvailability": "System Availability",
           "dataControl": "Data Control"
         }

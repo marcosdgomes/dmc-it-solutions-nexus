@@ -33,7 +33,7 @@
       "years": "Anos de Experiência",
       "projects": "Projetos Entregues",
       "clients": "Clientes Satisfeitos",
-      "certifications": "Certificações de Qualidade ISTQB Certificações em AWS, GCP e Azure",
+      "certifications": "Certificações de Qualidade ISTQB",
       "values": {
         "mission": {
           "title": "Missão",
@@ -185,7 +185,7 @@
         "description": "Migração completa para cloud e implementação de arquitetura serverless que otimizou a entrega de conteúdo e reduziu custos operacionais em 60%.",
         "results": {
           "costReduction": "Redução de Custos",
-          "performanceImprovement": "Melhoria de Performance", 
+          "performanceImprovement": "Melhoria de Performance",
           "uptime": "Uptime Alcançado"
         }
       },
@@ -194,7 +194,7 @@
         "company": "TechCorp",
         "description": "Implementação de infraestrutura bare metal com nuvem privada, garantindo máxima performance e controle total sobre os dados.",
         "results": {
-          "performanceImprovement": "Melhoria de Performance",
+          "costSavings": "Economia de Custos",
           "systemAvailability": "Disponibilidade do Sistema",
           "dataControl": "Controle de Dados"
         }
