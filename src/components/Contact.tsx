@@ -26,7 +26,7 @@ const Contact = () => {
 
     try {
       // Webhook URL is cloaked for security
-      const webhookUrl = "https://workflows.cloud.dmcitsolutions.com:5678/webhook/dmctech";
+      const webhookUrl = "https://workflows.cloud.dmcitsolutions.com/webhook/dmctech";
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
