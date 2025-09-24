@@ -13,6 +13,14 @@
       "getInTouch": "Get in Touch",
       "learnMore": "Learn More",
       "viewMore": "View More"
+    },
+    "chat": {
+      "title": "💬 DMC Assistant",
+      "placeholder": "Type your message...",
+      "typing": "Typing...",
+      "send": "Send",
+      "welcome": "Hello! How can I help you today?",
+      "error": "Error sending message. Please try again."
     }
   },
   "home": {
