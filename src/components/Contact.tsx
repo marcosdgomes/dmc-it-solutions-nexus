@@ -30,7 +30,6 @@ const Contact = () => {
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -41,7 +40,10 @@ const Contact = () => {
         }),
       });
 
-      // With no-cors mode, we can't check response status, so assume success
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       toast({
         title: t('home.contact.success'),
         description: t('home.contact.successDescription'),
