@@ -65,7 +65,7 @@ const ChatWidget: React.FC = () => {
     setIsTyping(true);
 
     try {
-      const response = await fetch('https://workflows.cloud.dmcitsolutions.com/webhook/659242146-5889-4035-a7a1-0529b835f459/chat', {
+      const response = await fetch('https://workflows.cloud.dmcitsolutions.com/webhook/5b5f7a51-f030-4358-9623-1c8c9623b281/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -183,7 +183,7 @@ const ChatWidget: React.FC = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder={t('common.chat.placeholder')}
-                className="flex-1 rounded-full border-slate-300 focus:border-blue-500"
+                className="flex-1 rounded-full border-slate-300 focus:border-blue-500 text-slate-900"
                 disabled={isTyping}
               />
               <Button
