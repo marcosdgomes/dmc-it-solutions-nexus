@@ -84,7 +84,7 @@ const ChatWidget: React.FC = () => {
       
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.message || data.response || 'Obrigado pela sua mensagem!',
+        text: data.output || data.message || data.response || 'Obrigado pela sua mensagem!',
         isUser: false,
         timestamp: new Date()
       };
