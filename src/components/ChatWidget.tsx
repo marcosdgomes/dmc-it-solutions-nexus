@@ -71,7 +71,7 @@ const ChatWidget: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: inputValue,
+          chatInput: inputValue,
           timestamp: new Date().toISOString()
         })
       });
