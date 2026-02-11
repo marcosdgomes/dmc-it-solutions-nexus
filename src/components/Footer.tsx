@@ -101,12 +101,12 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">{t('footer.navigation.title')}</h3>
             <ul className="space-y-3">
-              <li><a href="/#home" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.home')}</a></li>
-              <li><a href="/#services" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.services')}</a></li>
-              <li><a href="/#products" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.products')}</a></li>
-              <li><a href="/#cases" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.cases')}</a></li>
+              <li><a href="#home" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.home')}</a></li>
+              <li><a href="#services" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.services')}</a></li>
+              <li><a href="#products" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.products')}</a></li>
+              <li><a href="#cases" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.cases')}</a></li>
               <li><a href="/blog" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.blog')}</a></li>
-              <li><a href="/#contact" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.contact')}</a></li>
+              <li><a href="#contact" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.contact')}</a></li>
             </ul>
           </div>
 
@@ -117,7 +117,7 @@ const Footer = () => {
               {services.map((service) => (
                 <li key={service}>
                   <a
-                    href="/#services"
+                    href="#services"
                     className="text-gray-300 hover:text-tech-primary transition-colors duration-200 hover:translate-x-1 transform"
                   >
                     {service}
@@ -134,7 +134,7 @@ const Footer = () => {
               {products.map((product) => (
                 <li key={product}>
                   <a
-                    href="/#products"
+                    href="#products"
                     className="text-gray-300 hover:text-tech-primary transition-colors duration-200 hover:translate-x-1 transform"
                   >
                     {product}

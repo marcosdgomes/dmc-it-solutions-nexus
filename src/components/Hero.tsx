@@ -110,7 +110,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-tech-primary text-tech-primary hover:bg-tech-primary hover:text-white px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300"
-              onClick={() => window.location.href = '/#services'}
+              onClick={() => window.location.href = '#services'}
             >
               {t('home.hero.ctaContact')}
             </Button>
