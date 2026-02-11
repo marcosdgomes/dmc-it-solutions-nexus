@@ -23,10 +23,10 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('storage', handleStorageChange);
-    
+
     // Also check for updates periodically
     const interval = setInterval(handleStorageChange, 1000);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('storage', handleStorageChange);
@@ -35,15 +35,14 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-tech-dark/95 backdrop-blur-md border-b border-tech-lightGray/20' : 'bg-transparent'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-tech-dark/95 backdrop-blur-md border-b border-tech-lightGray/20' : 'bg-transparent'
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src="/logo-white.png" 
+            <img
+              src="/logo-white.png"
               alt={companyInfo.name}
               className="h-16 w-auto"
             />
@@ -59,21 +58,21 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#services"
+              href="/#services"
               className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
             >
               {t('common.nav.services')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#products"
+              href="/#products"
               className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
             >
               {t('common.nav.products')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#cases"
+              href="/#cases"
               className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
             >
               {t('common.nav.cases')}
@@ -87,7 +86,7 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-tech-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="text-gray-300 hover:text-tech-primary transition-colors duration-200 relative group"
             >
               {t('common.nav.contact')}
@@ -98,9 +97,9 @@ const Header = () => {
           {/* Language Switcher & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher variant="header" />
-            <Button 
+            <Button
               className="bg-tech-primary hover:bg-tech-primary/90 text-white font-medium px-6"
-              onClick={() => window.location.href = '#contact'}
+              onClick={() => window.location.href = '/#contact'}
             >
               {t('common.cta.contact')}
             </Button>
@@ -129,21 +128,21 @@ const Header = () => {
                 {t('common.nav.home')}
               </a>
               <a
-                href="#services"
+                href="/#services"
                 className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('common.nav.services')}
               </a>
               <a
-                href="#products"
+                href="/#products"
                 className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {t('common.nav.products')}
               </a>
               <a
-                href="#cases"
+                href="/#cases"
                 className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -157,7 +156,7 @@ const Header = () => {
                 {t('common.nav.blog')}
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 className="block px-3 py-2 text-gray-300 hover:text-tech-primary transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -165,11 +164,11 @@ const Header = () => {
               </a>
               <div className="px-3 py-2 flex items-center justify-between">
                 <LanguageSwitcher variant="footer" />
-                <Button 
+                <Button
                   className="bg-tech-primary hover:bg-tech-primary/90 text-white"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    window.location.href = '#contact';
+                    window.location.href = '/#contact';
                   }}
                 >
                   {t('common.cta.contact')}

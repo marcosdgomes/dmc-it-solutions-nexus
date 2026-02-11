@@ -12,12 +12,12 @@ const Hero = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current) return;
-      
+
       const scrolled = window.pageYOffset;
       const rate = scrolled * -0.5;
       const rate2 = scrolled * -0.3;
       const rate3 = scrolled * -0.1;
-      
+
       // Parallax effect on background layers
       if (layerRefs.current[0]) {
         layerRefs.current[0].style.transform = `translateY(${rate}px)`;
@@ -39,7 +39,7 @@ const Hero = () => {
       {/* Parallax Background Layers */}
       <div className="absolute inset-0">
         {/* Layer 1 - Floating orbs with parallax */}
-        <div 
+        <div
           ref={el => layerRefs.current[0] = el}
           className="absolute inset-0"
         >
@@ -49,7 +49,7 @@ const Hero = () => {
         </div>
 
         {/* Layer 2 - Geometric shapes */}
-        <div 
+        <div
           ref={el => layerRefs.current[1] = el}
           className="absolute inset-0"
         >
@@ -59,7 +59,7 @@ const Hero = () => {
         </div>
 
         {/* Layer 3 - Tech grid pattern */}
-        <div 
+        <div
           ref={el => layerRefs.current[2] = el}
           className="absolute inset-0 opacity-5"
         >
@@ -94,8 +94,8 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-tech-primary hover:bg-tech-primary/90 text-white px-8 py-4 text-lg font-medium rounded-xl hover-lift glow-effect"
               onClick={() => {
                 const contactSection = document.getElementById('contact');
@@ -106,11 +106,11 @@ const Hero = () => {
             >
               {t('home.hero.ctaDemo')}
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="border-tech-primary text-tech-primary hover:bg-tech-primary hover:text-white px-8 py-4 text-lg font-medium rounded-xl transition-all duration-300"
-              onClick={() => window.location.href = '#services'}
+              onClick={() => window.location.href = '/#services'}
             >
               {t('home.hero.ctaContact')}
             </Button>
