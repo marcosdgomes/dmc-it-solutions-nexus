@@ -101,12 +101,12 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">{t('footer.navigation.title')}</h3>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.home')}</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.services')}</a></li>
-              <li><a href="#products" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.products')}</a></li>
-              <li><a href="#cases" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.cases')}</a></li>
+              <li><a href="/#" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.home')}</a></li>
+              <li><a href="/#services" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.services')}</a></li>
+              <li><a href="/#products" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.products')}</a></li>
+              <li><a href="/#cases" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.cases')}</a></li>
               <li><a href="/blog" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.blog')}</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.contact')}</a></li>
+              <li><a href="/#contact" className="text-gray-300 hover:text-tech-primary transition-colors duration-200">{t('common.nav.contact')}</a></li>
             </ul>
           </div>
 
@@ -117,7 +117,7 @@ const Footer = () => {
               {services.map((service) => (
                 <li key={service}>
                   <a
-                    href="#services"
+                    href="/#services"
                     className="text-gray-300 hover:text-tech-primary transition-colors duration-200 hover:translate-x-1 transform"
                   >
                     {service}
@@ -127,14 +127,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Products & Language */}
+          {/* Products & Certifications */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6">{t('footer.products.title')}</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-6">
               {products.map((product) => (
                 <li key={product}>
                   <a
-                    href="#products"
+                    href="/#products"
                     className="text-gray-300 hover:text-tech-primary transition-colors duration-200 hover:translate-x-1 transform"
                   >
                     {product}
@@ -142,6 +142,15 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+
+            <h3 className="text-white font-bold text-sm mb-4 uppercase tracking-wider">{t('home.techStack.categories.certifications')}</h3>
+            <div className="flex flex-wrap gap-2">
+              <span className="bg-tech-gray/50 border border-tech-primary/30 rounded px-2 py-1 text-[10px] text-gray-300 font-bold uppercase">Azure</span>
+              <span className="bg-tech-gray/50 border border-tech-primary/30 rounded px-2 py-1 text-[10px] text-gray-300 font-bold uppercase">Oracle</span>
+              <span className="bg-tech-gray/50 border border-tech-primary/30 rounded px-2 py-1 text-[10px] text-gray-300 font-bold uppercase">Scrum</span>
+              <span className="bg-tech-gray/50 border border-tech-primary/30 rounded px-2 py-1 text-[10px] text-gray-300 font-bold uppercase">ISTQB</span>
+            </div>
+
             <div className="mt-6">
               <LanguageSwitcher variant="footer" />
             </div>

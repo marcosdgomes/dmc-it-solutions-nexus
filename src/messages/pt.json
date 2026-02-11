@@ -60,10 +60,11 @@
         "description": "Com anos de experiência no mercado, nossa equipe combina conhecimento técnico profundo com visão estratégica de negócios. Entregamos soluções que não apenas resolvem problemas técnicos, mas impulsionam o crescimento sustentável das empresas.",
         "items": [
           "Mais de 5 anos de experiência em DevOps e Cloud",
+          "Equipe certificada Azure e Oracle Cloud",
           "Especialistas em automação e IA aplicada",
-          "Metodologias ágeis e entrega contínua",
-          "Suporte 24/7 e monitoramento proativo",
-          "Equipe multidisciplinar e altamente qualificada"
+          "Metodologias ágeis (Scrum) e entrega contínua",
+          "Qualidade de software com padrão ISTQB",
+          "Suporte 24/7 e monitoramento proativo"
         ]
       }
     },
@@ -143,7 +144,8 @@
         "monitoring": "Monitoramento",
         "cicd": "CI/CD",
         "selfhosted": "Soluções Self-hosted",
-        "virtualization": "Virtualização"
+        "virtualization": "Virtualização",
+        "certifications": "Certificações & Padrões"
       }
     },
     "products": {
@@ -152,17 +154,29 @@
       "dmcAutoDeploy": {
         "title": "DMC AutoDeploy",
         "description": "Plataforma de deploy automatizado que acelera suas entregas em até 90% com pipelines CI/CD otimizados.",
-        "features": ["Deploy automático", "Rollback inteligente", "Monitoramento integrado"]
+        "features": [
+          "Deploy automático",
+          "Rollback inteligente",
+          "Monitoramento integrado"
+        ]
       },
       "dmcAiAssistant": {
         "title": "DMC AI Assistant",
         "description": "Assistente de IA especializado em DevOps que otimiza processos e automatiza tarefas complexas.",
-        "features": ["IA conversacional", "Automação inteligente", "Aprendizado contínuo"]
+        "features": [
+          "IA conversacional",
+          "Automação inteligente",
+          "Aprendizado contínuo"
+        ]
       },
       "dmcCloudManager": {
         "title": "DMC Cloud Manager",
         "description": "Gerencie múltiplos provedores de cloud em uma única interface com otimização de custos automática.",
-        "features": ["Multi-cloud", "Otimização de custos", "Gestão centralizada"]
+        "features": [
+          "Multi-cloud",
+          "Otimização de custos",
+          "Gestão centralizada"
+        ]
       },
       "badges": {
         "popular": "Popular",

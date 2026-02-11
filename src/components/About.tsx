@@ -5,7 +5,7 @@ import { CheckCircle, Target, Eye, Zap } from 'lucide-react';
 
 const About = () => {
   const { t } = useTranslation();
-  
+
   const values = [
     {
       icon: <Target className="w-8 h-8 text-tech-primary" />,
@@ -24,10 +24,7 @@ const About = () => {
     }
   ];
 
-  const expertise = [
-    ...t('home.about.expertise.items', { returnObjects: true }) as string[],
-    t('home.about.certifications')
-  ];
+  const expertise = t('home.about.expertise.items', { returnObjects: true }) as string[];
 
   return (
     <section id="about" className="py-20 bg-tech-gray/30">
@@ -45,7 +42,7 @@ const About = () => {
         {/* Values Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {values.map((value, index) => (
-            <div 
+            <div
               key={index}
               className="tech-card hover-lift animate-fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
@@ -68,10 +65,10 @@ const About = () => {
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
               {t('home.about.expertise.description')}
             </p>
-            
+
             <div className="space-y-4">
               {expertise.map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex items-center space-x-3 animate-slide-in-right"
                   style={{ animationDelay: `${index * 0.1}s` }}
@@ -91,7 +88,7 @@ const About = () => {
                 <div className="text-gray-400">DevOps</div>
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4 mt-6">
               <div className="tech-card text-center">
                 <div className="text-2xl font-bold text-tech-primary mb-2">20+</div>

@@ -1,7 +1,7 @@
 export const getCompanyInfo = () => {
   const saved = localStorage.getItem('wp-config')
   const config = saved ? JSON.parse(saved) : {}
-  
+
   return {
     name: config.siteTitle || "DMC IT Solutions",
     domain: "dmcitsolutions.com",
@@ -108,6 +108,10 @@ export const TECH_STACK = [
   {
     categoryKey: "virtualization",
     technologies: ["KVM", "Virtualization", "VMware Alternatives"]
+  },
+  {
+    categoryKey: "certifications",
+    technologies: ["Azure Certified", "Oracle Cloud", "SCRUM Master", "ISTQB Foundation"]
   }
 ];
 
