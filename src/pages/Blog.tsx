@@ -17,14 +17,14 @@ const Blog = () => {
   // Transform WordPress posts to match the existing structure
   const transformedPosts = posts.map(post => {
     // Extract featured image
-    const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 
-                         "photo-1461749280684-dccba630e2f6";
-    
+    const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
+      "photo-1461749280684-dccba630e2f6";
+
     // Extract category
-    const category = post._embedded?.['wp:term']?.[0]?.[0]?.name || "WordPress";
-    
+    const category = post._embedded?.['wp:term']?.[0]?.[0]?.name || "Tecnologia";
+
     // Extract tags
-    const tags = post._embedded?.['wp:term']?.[1]?.map(tag => tag.name) || ["WordPress", "Blog"];
+    const tags = post._embedded?.['wp:term']?.[1]?.map(tag => tag.name) || ["Tech", "Inovação"];
 
     return {
       title: post.title.rendered.replace(/<[^>]*>/g, ''),
@@ -46,7 +46,7 @@ const Blog = () => {
 
   const filteredPosts = transformedPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "Todos" || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -58,7 +58,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-tech-dark">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-tech-dark via-tech-gray to-tech-dark">
         <div className="container mx-auto px-4 text-center">
@@ -66,10 +66,10 @@ const Blog = () => {
             <span className="gradient-text">Blog</span> & Insights
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in">
-            Compartilhamos conhecimento, experiências e as últimas tendências 
+            Compartilhamos conhecimento, experiências e as últimas tendências
             em DevOps, Cloud, IA e transformação digital.
           </p>
-          
+
           {/* Search */}
           <div className="max-w-md mx-auto mb-8 animate-fade-in">
             <div className="relative">
@@ -94,11 +94,10 @@ const Blog = () => {
               <Button
                 key={category}
                 variant={selectedCategory === category ? "default" : "ghost"}
-                className={`${
-                  selectedCategory === category 
-                    ? "bg-tech-primary text-white" 
-                    : "text-gray-300 hover:text-white hover:bg-tech-primary/20"
-                }`}
+                className={`${selectedCategory === category
+                  ? "bg-tech-primary text-white"
+                  : "text-gray-300 hover:text-white hover:bg-tech-primary/20"
+                  }`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category}
@@ -113,13 +112,7 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           {!config.apiUrl ? (
             <div className="text-center py-16">
-              <p className="text-gray-300 text-lg mb-4">Configure a API do WordPress no Management para exibir posts.</p>
-              <Button 
-                onClick={() => window.location.href = '/management'}
-                className="bg-tech-primary hover:bg-tech-primary/90"
-              >
-                Ir para Management
-              </Button>
+              <p className="text-gray-300 text-lg mb-4">Em breve, novos artigos e insights para você.</p>
             </div>
           ) : isLoading ? (
             <div className="text-center py-16">
@@ -133,14 +126,14 @@ const Blog = () => {
           ) : (
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
               {filteredPosts.map((post, index) => (
-                <article 
+                <article
                   key={post.id}
                   className="tech-card hover-lift animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden rounded-lg mb-6">
-                    <img 
+                    <img
                       src={post.image.startsWith('http') ? post.image : `https://images.unsplash.com/${post.image}?w=400&h=250&fit=crop`}
                       alt={post.title}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
@@ -157,13 +150,13 @@ const Blog = () => {
 
                   {/* Content */}
                   <div className="space-y-4">
-                    <h3 
+                    <h3
                       className="text-xl font-bold text-white hover:text-tech-primary transition-colors duration-300 cursor-pointer"
                       onClick={() => handleReadMore(post.slug)}
                     >
                       {post.title}
                     </h3>
-                    
+
                     <p className="text-gray-300 text-sm leading-relaxed">
                       {post.excerpt}
                     </p>
@@ -186,7 +179,7 @@ const Blog = () => {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">
                       {post.tags.slice(0, 3).map((tag, tagIndex) => (
-                        <span 
+                        <span
                           key={tagIndex}
                           className="bg-tech-gray/50 text-gray-300 px-2 py-1 rounded text-xs"
                         >
@@ -196,8 +189,8 @@ const Blog = () => {
                     </div>
 
                     {/* Read More */}
-                    <Button 
-                      variant="ghost" 
+                    <Button
+                      variant="ghost"
                       size="sm"
                       className="text-tech-primary hover:text-white hover:bg-tech-primary w-full mt-4"
                       onClick={() => handleReadMore(post.slug)}
@@ -214,7 +207,7 @@ const Blog = () => {
           {/* Load More */}
           {filteredPosts.length > 0 && (
             <div className="text-center mt-12">
-              <Button 
+              <Button
                 size="lg"
                 variant="outline"
                 className="border-tech-primary text-tech-primary hover:bg-tech-primary hover:text-white px-8"
