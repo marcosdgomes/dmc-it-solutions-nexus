@@ -1,0 +1,22 @@
+
+
+services:
+  app:
+    container_name: dmc-nexus-app
+    build:
+      context: .
+      target: dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+    networks:
+      - dmc-network
+
+networks:
+  dmc-network:
+    driver: bridge
