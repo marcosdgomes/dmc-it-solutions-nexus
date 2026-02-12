@@ -83,7 +83,7 @@ export const TECH_STACK = [
   },
   {
     categoryKey: "cloudProviders",
-    technologies: ["AWS", "GCP", "DigitalOcean", "Hetzner"]
+    technologies: ["AWS", "GCP", "Azure", "Oracle Cloud", "DigitalOcean", "Hetzner"]
   },
   {
     categoryKey: "development",
